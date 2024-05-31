@@ -24,7 +24,7 @@ namespace ComplaintTracker.Controllers
                 obj = Repository.GetUserList();
                 if (obj.Count > 0)
                 {
-                    ViewBag.Title = "JDVVNL Dashboard";
+                    ViewBag.Title = "MGVCL Dashboard";
                 }
                 return View(obj);
             }
@@ -42,7 +42,7 @@ namespace ComplaintTracker.Controllers
             obj.RolesCollection = Repository.GetRolesList();
             if (obj == null)
             {
-                ViewBag.Title = "JDVVNL Dashboard";
+                ViewBag.Title = "MGVCL Dashboard";
             }
 
             return View(obj);

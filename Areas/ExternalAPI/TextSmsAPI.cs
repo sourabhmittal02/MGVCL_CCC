@@ -21,8 +21,8 @@ namespace DirectComplaintRegister.ExternalAPI
     {
         static readonly Serilog.ILogger log = EventLogger._log;
         ModelSmsAPI modelsmsClone = null;
-        private static string JDVVNLComplaintApiURL = System.Configuration.ConfigurationManager.AppSettings["JDVVNLComplaintApiURL"];
-        private string SendSmsWeb = System.Configuration.ConfigurationManager.AppSettings["JDVVNLComplaintSendSmsWeb"];
+        private static string MGVCLComplaintApiURL = System.Configuration.ConfigurationManager.AppSettings["MGVCLComplaintApiURL"];
+        private string SendSmsWeb = System.Configuration.ConfigurationManager.AppSettings["MGVCLComplaintSendSmsWeb"];
         public async Task<string> RegisterComplaintSMS(ModelSmsAPI modelsms)
         {
             log.Information("IN RegisterComplaintSMS");
@@ -73,7 +73,7 @@ namespace DirectComplaintRegister.ExternalAPI
         }
         public async Task<string> RegisterComplaintSendSMSWeb(ModelSmsAPISendSMS modelsms)
         {
-            var client = new RestClient(JDVVNLComplaintApiURL + "/" + SendSmsWeb + "?TYPE=H");
+            var client = new RestClient(MGVCLComplaintApiURL + "/" + SendSmsWeb + "?TYPE=H");
             var restRequest = new RestRequest();
             restRequest.Method = Method.POST;
             restRequest.AddHeader("Accept", "application/json");

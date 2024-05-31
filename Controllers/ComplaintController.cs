@@ -602,7 +602,7 @@ namespace ComplaintTracker.Controllers
                 obj[0].lstComplaint = objComp;
                 if (obj.Count > 0)
                 {
-                    ViewBag.Title = "JDVVNL Dashboard";
+                    ViewBag.Title = "MGVCL Dashboard";
                 }
                 return View(obj);
             }

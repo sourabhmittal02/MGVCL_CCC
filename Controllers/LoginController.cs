@@ -29,7 +29,7 @@ namespace ComplaintTracker.Controllers
         public ActionResult AccountLogin()
         {
            
-            ViewBag.Title = "JDVVNL Account login";
+            ViewBag.Title = "MGVCL Account login";
             if (TempData["loginmsg"] != null)
             {
                 Session.RemoveAll();
