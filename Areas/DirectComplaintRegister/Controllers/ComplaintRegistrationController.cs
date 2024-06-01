@@ -298,6 +298,7 @@ namespace ComplaintTracker.Areas.DirectComplaintRegister.Controllers
             return View(objComplaint);
         }
 
+        #region GetComplaintSearch
         [HttpPost]
         public JsonResult GetComplaintSearch(DataTableAjaxPostModel model) //It will be fired from Jquery ajax call
         {
@@ -341,7 +342,7 @@ namespace ComplaintTracker.Areas.DirectComplaintRegister.Controllers
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
         }
-
+        #endregion
         [HttpGet]
         public JsonResult Close(string closeIds)
         {
