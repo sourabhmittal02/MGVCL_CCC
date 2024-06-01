@@ -3050,7 +3050,7 @@ namespace ComplaintTracker.DAL
                             ADDRESS3 = Convert.ToString(dr["ADDRESS3"]),
                             KNO = Convert.ToString(dr["KNO"]),
                             MOBILE_NO = Convert.ToString(dr["MOBILE_NO"]),
-
+                            OFFICE_CODE_ID=3103310,
                         }
                         );
                 }
