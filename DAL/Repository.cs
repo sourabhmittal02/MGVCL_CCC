@@ -350,64 +350,64 @@ namespace ComplaintTracker.DAL
             {
                 retStatus = -1;
             }
-            try
-            {
-                if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
-                {
-                    #region OldSMSAPI
-                    ////////log.Information(modelComplaint.MOBILE_NO.ToString());
-                    ////////ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                    ////////TextSmsAPI textSmsAPI = new TextSmsAPI();
+            //try
+            //{
+            //    if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
+            //    {
+            //        #region OldSMSAPI
+            //        ////////log.Information(modelComplaint.MOBILE_NO.ToString());
+            //        ////////ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+            //        ////////TextSmsAPI textSmsAPI = new TextSmsAPI();
 
-                    ////////modelSmsAPI.To = modelComplaint.MOBILE_NO.ToString();
-                    ////////modelSmsAPI.Smstext = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए https://bit.ly/JDVVNLCCC का प्रयोग करें। जोधपुर डिस्कॉम।";
-                    ////////modelSmsAPI.Smstemplete = "1307171445679499387";
-                    ////////string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
-
-
+            //        ////////modelSmsAPI.To = modelComplaint.MOBILE_NO.ToString();
+            //        ////////modelSmsAPI.Smstext = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए https://bit.ly/JDVVNLCCC का प्रयोग करें। जोधपुर डिस्कॉम।";
+            //        ////////modelSmsAPI.Smstemplete = "1307171445679499387";
+            //        ////////string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
 
 
 
-                    ////////modelComplaint.SMS = modelSmsAPI.Smstext;
-                    ////////log.Information(response.ToString());
 
-                    //////////if (response.Contains("avvnlalt"))
-                    //////////{
-                    ////////PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
 
-                    //////////ModelSmsAPI modelSmsAPI1 = new ModelSmsAPI();
-                    //////////TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                    //////////modelSmsAPI1.To = modelComplaint.MOBILE_NO.ToString();
-                    //////////modelSmsAPI1.Smstext = "प्रिय उपभोक्ता, शिकायत क्रमांक " + retStatus + " फाॅल्ट रेक्टिफिकेषन टीम को निर्दिष्ट कर दी गई है। जोधपुर डिस्कॉम।";
-                    //////////modelSmsAPI1.Smstemplete = "1307160688865523002";
-                    //////////string response1 = await textSmsAPI1.RegisterComplaintSMSEncode(modelSmsAPI1);
-                    //////////modelComplaint.SMS = modelSmsAPI1.Smstext;
-                    //////////log.Information(response1.ToString());
-                    //////////PUSH_SMS_DETAIL_Consumer(modelComplaint, response1);
-                    //////////}
-                    #endregion 
+            //        ////////modelComplaint.SMS = modelSmsAPI.Smstext;
+            //        ////////log.Information(response.ToString());
 
-                    log.Information(modelComplaint.MOBILE_NO.ToString());
-                    ModelSmsAPISendSMS modelSmsAPIOWN = new ModelSmsAPISendSMS();
-                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                    modelSmsAPIOWN.id = "0";
-                    modelSmsAPIOWN.to = modelComplaint.MOBILE_NO.ToString();
-                    modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए https://bit.ly/JDVVNLCCC का प्रयोग करें। जोधपुर डिस्कॉम।";
-                    modelSmsAPIOWN.templateid = "1307171445679499387";
-                    string response1 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+            //        //////////if (response.Contains("avvnlalt"))
+            //        //////////{
+            //        ////////PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
 
-                    modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, शिकायत क्रमांक " + retStatus + " फाॅल्ट रेक्टिफिकेषन टीम को निर्दिष्ट कर दी गई है। जोधपुर डिस्कॉम।";
-                    modelSmsAPIOWN.templateid = "1307160688865523002";
-                    string response2 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+            //        //////////ModelSmsAPI modelSmsAPI1 = new ModelSmsAPI();
+            //        //////////TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+            //        //////////modelSmsAPI1.To = modelComplaint.MOBILE_NO.ToString();
+            //        //////////modelSmsAPI1.Smstext = "प्रिय उपभोक्ता, शिकायत क्रमांक " + retStatus + " फाॅल्ट रेक्टिफिकेषन टीम को निर्दिष्ट कर दी गई है। जोधपुर डिस्कॉम।";
+            //        //////////modelSmsAPI1.Smstemplete = "1307160688865523002";
+            //        //////////string response1 = await textSmsAPI1.RegisterComplaintSMSEncode(modelSmsAPI1);
+            //        //////////modelComplaint.SMS = modelSmsAPI1.Smstext;
+            //        //////////log.Information(response1.ToString());
+            //        //////////PUSH_SMS_DETAIL_Consumer(modelComplaint, response1);
+            //        //////////}
+            //        #endregion 
 
-                    //modelComplaint.SMS = modelSmsAPIOWN.smsText;
-                    log.Information(response1.ToString());
-                    //PUSH_SMS_DETAIL_Consumer(modelComplaint, response1);
-                }
-                else
-                    retStatus1 = 0;
-            }
-            catch(Exception ex) { retStatus1 = -1;}
+            //        log.Information(modelComplaint.MOBILE_NO.ToString());
+            //        ModelSmsAPISendSMS modelSmsAPIOWN = new ModelSmsAPISendSMS();
+            //        TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+            //        modelSmsAPIOWN.id = "0";
+            //        modelSmsAPIOWN.to = modelComplaint.MOBILE_NO.ToString();
+            //        modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए https://bit.ly/JDVVNLCCC का प्रयोग करें। जोधपुर डिस्कॉम।";
+            //        modelSmsAPIOWN.templateid = "1307171445679499387";
+            //        string response1 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+
+            //        modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, शिकायत क्रमांक " + retStatus + " फाॅल्ट रेक्टिफिकेषन टीम को निर्दिष्ट कर दी गई है। जोधपुर डिस्कॉम।";
+            //        modelSmsAPIOWN.templateid = "1307160688865523002";
+            //        string response2 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+
+            //        //modelComplaint.SMS = modelSmsAPIOWN.smsText;
+            //        log.Information(response1.ToString());
+            //        //PUSH_SMS_DETAIL_Consumer(modelComplaint, response1);
+            //    }
+            //    else
+            //        retStatus1 = 0;
+            //}
+            //catch(Exception ex) { retStatus1 = -1;}
             return retStatus;
 
         }
@@ -497,47 +497,47 @@ namespace ComplaintTracker.DAL
                 if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
                 {
                     log.Information(modelComplaint.MOBILE_NO.ToString());
-                    ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                    TextSmsAPI textSmsAPI = new TextSmsAPI();
+                    //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+                    //TextSmsAPI textSmsAPI = new TextSmsAPI();
 
-                    modelSmsAPI.To = "91" + modelComplaint.MOBILE_NO.ToString();
-                    modelSmsAPI.Smstext = String.Format(modelSmsAPI.NCMS_ConsumerSMS, retStatus);
-                    string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
-                    modelComplaint.SMS = modelSmsAPI.Smstext;
-                    log.Information(response.ToString());
+                    //modelSmsAPI.To = "91" + modelComplaint.MOBILE_NO.ToString();
+                    //modelSmsAPI.Smstext = String.Format(modelSmsAPI.NCMS_ConsumerSMS, retStatus);
+                    //string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
+                    //modelComplaint.SMS = modelSmsAPI.Smstext;
+                    //log.Information(response.ToString());
 
-                    //if (response.Contains("avvnlalt"))
+                    ////if (response.Contains("avvnlalt"))
+                    ////{
+                    //PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
+                    ////}
+                    //string retStatus1;
+                    //string ccMobileNo = GET_CC_MOBILE_NO(modelComplaint.SDO_CODE);
+                    ////string Name = GET_COMPLAINT_DETAIL(retStatus);
+                    //string name = string.Empty;
+                    //string Address = string.Empty;
+                    //string Landmark = string.Empty;
+                    //string MobileNo = string.Empty;
+                    //DataSet ds = GET_COMPLAINT_DETAIL(retStatus);
+
+                    //if (!string.IsNullOrEmpty(ccMobileNo))
                     //{
-                    PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
-                    //}
-                    string retStatus1;
-                    string ccMobileNo = GET_CC_MOBILE_NO(modelComplaint.SDO_CODE);
-                    //string Name = GET_COMPLAINT_DETAIL(retStatus);
-                    string name = string.Empty;
-                    string Address = string.Empty;
-                    string Landmark = string.Empty;
-                    string MobileNo = string.Empty;
-                    DataSet ds = GET_COMPLAINT_DETAIL(retStatus);
+                    //    foreach (DataRow dr in ds.Tables[0].Rows)
+                    //    {
+                    //        //Consumer Info
+                    //        name = Convert.ToString(dr["NAME"]);
 
-                    if (!string.IsNullOrEmpty(ccMobileNo))
-                    {
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            //Consumer Info
-                            name = Convert.ToString(dr["NAME"]);
-
-                            Address = Convert.ToString(dr["Address"]);
-                            Landmark = Convert.ToString(dr["LANDMARK"]);
-                            MobileNo = Convert.ToString(dr["MOBILE_NO"]);
+                    //        Address = Convert.ToString(dr["Address"]);
+                    //        Landmark = Convert.ToString(dr["LANDMARK"]);
+                    //        MobileNo = Convert.ToString(dr["MOBILE_NO"]);
                             
-                        }
-                        ModelSmsAPI modelSmsCCAPI = new ModelSmsAPI();
-                        modelSmsCCAPI.To = "91" + ccMobileNo;
-                        modelSmsCCAPI.Smstext = String.Format(modelSmsCCAPI.NCMS_CCSMS, retStatus,name,Address,Landmark,MobileNo);
-                        string responseCC = await textSmsAPI.RegisterComplaintSMS(modelSmsCCAPI);
+                    //    }
+                    //    ModelSmsAPI modelSmsCCAPI = new ModelSmsAPI();
+                    //    modelSmsCCAPI.To = "91" + ccMobileNo;
+                    //    modelSmsCCAPI.Smstext = String.Format(modelSmsCCAPI.NCMS_CCSMS, retStatus,name,Address,Landmark,MobileNo);
+                    //    string responseCC = await textSmsAPI.RegisterComplaintSMS(modelSmsCCAPI);
 
-                        PUSH_SMS_DETAIL_Consumer1(ccMobileNo, modelSmsCCAPI.Smstext, responseCC);
-                    }
+                    //    PUSH_SMS_DETAIL_Consumer1(ccMobileNo, modelSmsCCAPI.Smstext, responseCC);
+                    //}
 
 
 
@@ -655,33 +655,33 @@ namespace ComplaintTracker.DAL
             {
                 retStatus = -1;
             }
-            try
-            {
-                if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
-                {
-                    log.Information(modelComplaint.MOBILE_NO.ToString());
-                    ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                    TextSmsAPI textSmsAPI = new TextSmsAPI();
+            //try
+            //{
+            //    if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
+            //    {
+            //        log.Information(modelComplaint.MOBILE_NO.ToString());
+            //        ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+            //        TextSmsAPI textSmsAPI = new TextSmsAPI();
 
-                    modelSmsAPI.To = modelComplaint.MOBILE_NO.ToString();
-                    modelSmsAPI.Smstext = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए \"\"VIDYUT SAATHI\"\" ऐप का प्रयोग करें। जोधपुर डिस्कॉम।";
-                    modelSmsAPI.Smstemplete = "1307160688860548923";
-                    string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
-                    modelComplaint.SMS = modelSmsAPI.Smstext;
-                    log.Information(response.ToString());
+            //        modelSmsAPI.To = modelComplaint.MOBILE_NO.ToString();
+            //        modelSmsAPI.Smstext = "प्रिय उपभोक्ता, आपका शिकायत क्रमांक " + retStatus + " दिनांक " + DateTime.Now.ToString("dd-MMM-yyyy") + " है। विद्युत सम्बन्धित शिकायत एवं अन्य सुविधाओं के लिए \"\"VIDYUT SAATHI\"\" ऐप का प्रयोग करें। जोधपुर डिस्कॉम।";
+            //        modelSmsAPI.Smstemplete = "1307160688860548923";
+            //        string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
+            //        modelComplaint.SMS = modelSmsAPI.Smstext;
+            //        log.Information(response.ToString());
 
-                    //if (response.Contains("avvnlalt"))
-                    //{
-                    PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
-                    //}
-                }
-                else
-                    retStatus1 = 0;
-            }
-            catch (Exception ex)
-            {
-                retStatus1 = -1;
-            }
+            //        //if (response.Contains("avvnlalt"))
+            //        //{
+            //        PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
+            //        //}
+            //    }
+            //    else
+            //        retStatus1 = 0;
+            //}
+            //catch (Exception ex)
+            //{
+            //    retStatus1 = -1;
+            //}
             return retStatus;
 
         }
@@ -1416,87 +1416,87 @@ namespace ComplaintTracker.DAL
             {
                 retStatus = -1;
             }
-            try
-            {
+            //try
+            //{
 
                 
-                modelSmsAPIOWN.id = "0";
-                modelSmsAPIOWN.to = modelRemark.MOBILE_NO.ToString();
-                modelSmsAPIOWN.smsText = modelRemark.SMS;
-                modelSmsAPIOWN.templateid = "1307160688865523002";
-                string response2 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+            //    modelSmsAPIOWN.id = "0";
+            //    modelSmsAPIOWN.to = modelRemark.MOBILE_NO.ToString();
+            //    modelSmsAPIOWN.smsText = modelRemark.SMS;
+            //    modelSmsAPIOWN.templateid = "1307160688865523002";
+            //    string response2 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
 
 
-                //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                //TextSmsAPI textSmsAPI = new TextSmsAPI();
-                //modelSmsAPI.To = modelRemark.MOBILE_NO.ToString();
-                //modelSmsAPI.Smstext = modelRemark.SMS;
-                //modelSmsAPI.Smstemplete = "1307160688865523002";
-                //string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
-                //log.Information(response.ToString());
-                //PUSH_SMS_DETAIL_Consumer(modelRemark, response);
-                if (modelRemark.Assign_FRTMobile.Length == 10)
-                {
-                    SqlParameter[] param1 ={
-                    new SqlParameter("@COMPLAINT_NO",modelRemark.COMPLAINT_NO),
-                                       };
-                    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetComplaintDetail", param1);
-                    //Bind Complaint generic list using dataRow     
-                    foreach (DataRow dr in ds.Tables[0].Rows)
-                    {
-                        modelRemark.Complaintdate = Convert.ToString(dr["Complaint_date"]);
-                        modelRemark.NAME = dr["NAME"].ToString();
-                        modelRemark.FATHER_NAME = dr["FATHER_NAME"].ToString();
-                        modelRemark.ADDRESS1 = dr["ADDRESS1"].ToString();
-                        modelRemark.ADDRESS2 = dr["ADDRESS2"].ToString();
-                        modelRemark.ADDRESS3 = dr["ADDRESS3"].ToString();
-                        modelRemark.LANDMARK = dr["LANDMARK"].ToString();
-                        modelRemark.COMPLAINT_TYPE = dr["COMPLAINT_TYPE"].ToString();
-                        modelRemark.ALTERNATE_MOBILE_NO = dr["ALTERNATE_MOBILE_NO"].ToString();
+            //    //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+            //    //TextSmsAPI textSmsAPI = new TextSmsAPI();
+            //    //modelSmsAPI.To = modelRemark.MOBILE_NO.ToString();
+            //    //modelSmsAPI.Smstext = modelRemark.SMS;
+            //    //modelSmsAPI.Smstemplete = "1307160688865523002";
+            //    //string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
+            //    //log.Information(response.ToString());
+            //    //PUSH_SMS_DETAIL_Consumer(modelRemark, response);
+            //    if (modelRemark.Assign_FRTMobile.Length == 10)
+            //    {
+            //        SqlParameter[] param1 ={
+            //        new SqlParameter("@COMPLAINT_NO",modelRemark.COMPLAINT_NO),
+            //                           };
+            //        DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetComplaintDetail", param1);
+            //        //Bind Complaint generic list using dataRow     
+            //        foreach (DataRow dr in ds.Tables[0].Rows)
+            //        {
+            //            modelRemark.Complaintdate = Convert.ToString(dr["Complaint_date"]);
+            //            modelRemark.NAME = dr["NAME"].ToString();
+            //            modelRemark.FATHER_NAME = dr["FATHER_NAME"].ToString();
+            //            modelRemark.ADDRESS1 = dr["ADDRESS1"].ToString();
+            //            modelRemark.ADDRESS2 = dr["ADDRESS2"].ToString();
+            //            modelRemark.ADDRESS3 = dr["ADDRESS3"].ToString();
+            //            modelRemark.LANDMARK = dr["LANDMARK"].ToString();
+            //            modelRemark.COMPLAINT_TYPE = dr["COMPLAINT_TYPE"].ToString();
+            //            modelRemark.ALTERNATE_MOBILE_NO = dr["ALTERNATE_MOBILE_NO"].ToString();
 
-                    }
-                    log.Information(modelRemark.MOBILE_NO.ToString());
-                    modelSmsAPIOWN.id = "0";
-                    modelSmsAPIOWN.to = modelRemark.Assign_FRTMobile.ToString();
-                    string address = modelRemark.ADDRESS1 + "," + modelRemark.ADDRESS2 + "," + modelRemark.ADDRESS3;
-                    if (modelRemark.ASSIGNEEId == 8)
-                    {
-                        modelSmsAPIOWN.smsText = "Dear FRT Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
-                    }
-                    else
-                    {
-                        modelSmsAPIOWN.smsText = "Dear Sir Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
-                    }
-                    //modelSmsAPIOWN.smsText = modelRemark.SMS;
-                    modelSmsAPIOWN.templateid = "1307160472989225821";
-                    string response3 = await textSmsAPI1.RegisterComplaintSendSMSWebEng(modelSmsAPIOWN);
+            //        }
+            //        log.Information(modelRemark.MOBILE_NO.ToString());
+            //        modelSmsAPIOWN.id = "0";
+            //        modelSmsAPIOWN.to = modelRemark.Assign_FRTMobile.ToString();
+            //        string address = modelRemark.ADDRESS1 + "," + modelRemark.ADDRESS2 + "," + modelRemark.ADDRESS3;
+            //        if (modelRemark.ASSIGNEEId == 8)
+            //        {
+            //            modelSmsAPIOWN.smsText = "Dear FRT Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
+            //        }
+            //        else
+            //        {
+            //            modelSmsAPIOWN.smsText = "Dear Sir Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
+            //        }
+            //        //modelSmsAPIOWN.smsText = modelRemark.SMS;
+            //        modelSmsAPIOWN.templateid = "1307160472989225821";
+            //        string response3 = await textSmsAPI1.RegisterComplaintSendSMSWebEng(modelSmsAPIOWN);
 
 
 
-                    //ModelSmsAPI modelSmsAPI_FRT = new ModelSmsAPI();
-                    //TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                    //modelSmsAPI_FRT.To = modelRemark.Assign_FRTMobile.ToString();
-                    //modelSmsAPI_FRT.Smstemplete = "1307160472989225821";
-                    //string address = modelRemark.ADDRESS1 + "," + modelRemark.ADDRESS2 + "," + modelRemark.ADDRESS3;
-                    //if (modelRemark.ASSIGNEEId == 8)
-                    //{
-                    //    modelSmsAPI_FRT.Smstext = "Dear FRT Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
-                    //}
-                    //else
-                    //{
-                    //    modelSmsAPI_FRT.Smstext = "Dear Sir Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
-                    //}
-                    //string response1 = await textSmsAPI1.RegisterComplaintSMS(modelSmsAPI_FRT);
-                    //modelRemark.SMS = modelSmsAPI_FRT.Smstext;
-                    //modelRemark.MOBILE_NO = modelSmsAPI_FRT.To;
-                    //log.Information(response1.ToString());
-                    //PUSH_SMS_DETAIL_Consumer(modelRemark, response1);
-                }
-            }
-            catch (Exception ex)
-            {
-                retStatus1 = -1;
-            }
+            //        //ModelSmsAPI modelSmsAPI_FRT = new ModelSmsAPI();
+            //        //TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+            //        //modelSmsAPI_FRT.To = modelRemark.Assign_FRTMobile.ToString();
+            //        //modelSmsAPI_FRT.Smstemplete = "1307160472989225821";
+            //        //string address = modelRemark.ADDRESS1 + "," + modelRemark.ADDRESS2 + "," + modelRemark.ADDRESS3;
+            //        //if (modelRemark.ASSIGNEEId == 8)
+            //        //{
+            //        //    modelSmsAPI_FRT.Smstext = "Dear FRT Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
+            //        //}
+            //        //else
+            //        //{
+            //        //    modelSmsAPI_FRT.Smstext = "Dear Sir Complaint has been assigned to you with the details below COMPLAINT TYPE : " + modelRemark.COMPLAINT_TYPE + " ,COMPLAINT NO: " + modelRemark.COMPLAINT_NO + " ,NAME OF CONSUMER: " + modelRemark.NAME + " ,ADDRESS OF CONSUMER: " + address.Substring(0, 10) + ", Mobile No. " + modelRemark.MOBILE_NO + "-JDVVNL";
+            //        //}
+            //        //string response1 = await textSmsAPI1.RegisterComplaintSMS(modelSmsAPI_FRT);
+            //        //modelRemark.SMS = modelSmsAPI_FRT.Smstext;
+            //        //modelRemark.MOBILE_NO = modelSmsAPI_FRT.To;
+            //        //log.Information(response1.ToString());
+            //        //PUSH_SMS_DETAIL_Consumer(modelRemark, response1);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    retStatus1 = -1;
+            //}
 
             return retStatus;
 
@@ -1709,37 +1709,37 @@ namespace ComplaintTracker.DAL
             {
                 retStatus = -1;
             }
-            try
-            {
-                COMPLAINT cOMPLAINT = Repository.GetMobileEmail(Convert.ToInt64(modelRemark.ComplaintNo));
+            //try
+            //{
+            //    COMPLAINT cOMPLAINT = Repository.GetMobileEmail(Convert.ToInt64(modelRemark.ComplaintNo));
 
-                ModelSmsAPISendSMS modelSmsAPIOWN = new ModelSmsAPISendSMS();
-                TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                modelSmsAPIOWN.id = "0";
-                modelSmsAPIOWN.to = cOMPLAINT.MOBILE_NO.ToString();
-                modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, शिकायत क्रमांक " + cOMPLAINT.COMPLAINT_NO + " बंद की जा रही है। जोधपुर डिस्कॉम।";
-                modelSmsAPIOWN.templateid = "1307160688875923092";
-                string response1 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
+            //    ModelSmsAPISendSMS modelSmsAPIOWN = new ModelSmsAPISendSMS();
+            //    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+            //    modelSmsAPIOWN.id = "0";
+            //    modelSmsAPIOWN.to = cOMPLAINT.MOBILE_NO.ToString();
+            //    modelSmsAPIOWN.smsText = "प्रिय उपभोक्ता, शिकायत क्रमांक " + cOMPLAINT.COMPLAINT_NO + " बंद की जा रही है। जोधपुर डिस्कॉम।";
+            //    modelSmsAPIOWN.templateid = "1307160688875923092";
+            //    string response1 = await textSmsAPI1.RegisterComplaintSendSMSWeb(modelSmsAPIOWN);
 
 
-                log.Information(cOMPLAINT.MOBILE_NO.ToString());
-                //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                //TextSmsAPI textSmsAPI = new TextSmsAPI();
-                //modelSmsAPI.To = cOMPLAINT.MOBILE_NO.ToString();
-                //modelSmsAPI.Smstemplete = "1307160688875923092";
-                //modelSmsAPI.Smstext = "प्रिय उपभोक्ता, शिकायत क्रमांक " + cOMPLAINT.COMPLAINT_NO + " बंद की जा रही है। जोधपुर डिस्कॉम।";
-                //string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
-                //cOMPLAINT.SMS = modelSmsAPI.Smstext;
-                //log.Information(response.ToString());
+            //    log.Information(cOMPLAINT.MOBILE_NO.ToString());
+            //    //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+            //    //TextSmsAPI textSmsAPI = new TextSmsAPI();
+            //    //modelSmsAPI.To = cOMPLAINT.MOBILE_NO.ToString();
+            //    //modelSmsAPI.Smstemplete = "1307160688875923092";
+            //    //modelSmsAPI.Smstext = "प्रिय उपभोक्ता, शिकायत क्रमांक " + cOMPLAINT.COMPLAINT_NO + " बंद की जा रही है। जोधपुर डिस्कॉम।";
+            //    //string response = await textSmsAPI.RegisterComplaintSMSEncode(modelSmsAPI);
+            //    //cOMPLAINT.SMS = modelSmsAPI.Smstext;
+            //    //log.Information(response.ToString());
 
-                ////if (response.Contains("avvnlalt"))
-                ////{
-                //PUSH_SMS_DETAIL_Consumer(cOMPLAINT, response);
-            }
-            catch(Exception ex) 
-            { 
-                retStatus1 = -1;
-            }
+            //    ////if (response.Contains("avvnlalt"))
+            //    ////{
+            //    //PUSH_SMS_DETAIL_Consumer(cOMPLAINT, response);
+            //}
+            //catch(Exception ex) 
+            //{ 
+            //    retStatus1 = -1;
+            //}
 
 
             return retStatus;

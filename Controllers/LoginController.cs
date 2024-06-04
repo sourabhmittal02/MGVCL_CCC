@@ -286,19 +286,19 @@ namespace ComplaintTracker.Controllers
                 else
                 {
 
-                    if (Convert.ToString(Session["Roll_ID"]).Contains("5") || Convert.ToString(Session["Roll_ID"]).Contains("6") || Convert.ToString(Session["Roll_ID"]).Contains("7"))
-                    {
-                        #region generateOTP
-                        LoginOTP obj = new LoginOTP();
-                        obj.LoginId = Convert.ToString(Session["User_Name"]);
+                    //if (Convert.ToString(Session["Roll_ID"]).Contains("5") || Convert.ToString(Session["Roll_ID"]).Contains("6") || Convert.ToString(Session["Roll_ID"]).Contains("7"))
+                    //{
+                    //    #region generateOTP
+                    //    LoginOTP obj = new LoginOTP();
+                    //    obj.LoginId = Convert.ToString(Session["User_Name"]);
 
-                        string otpforuser = Repository.GenerateOtp(Convert.ToString(@Session["Mobile_No"]));
-                        await SendOTPSms(Convert.ToString(@Session["Mobile_No"]), otpforuser);
-                        return PartialView("_otpPopup", obj);
-                        #endregion
-                    }
-                    else
-                    {
+                    //    string otpforuser = Repository.GenerateOtp(Convert.ToString(@Session["Mobile_No"]));
+                    //    await SendOTPSms(Convert.ToString(@Session["Mobile_No"]), otpforuser);
+                    //    return PartialView("_otpPopup", obj);
+                    //    #endregion
+                    //}
+                    //else
+                    //{
 
                         UserAPI userAPI = new UserAPI();
                         ModelUser modelUser = new ModelUser();
@@ -361,7 +361,7 @@ namespace ComplaintTracker.Controllers
                         var urlBuilder = new UrlHelper(Request.RequestContext);
                         var url = urlBuilder.Action("Index", "Dashboard");
                         return Json(new { status = "success", redirectUrl = url }, JsonRequestBehavior.AllowGet);
-                    }
+                    //}
                 }
             }
 
