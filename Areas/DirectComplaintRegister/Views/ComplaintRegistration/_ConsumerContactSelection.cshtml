@@ -58,7 +58,6 @@
         var consumerType = '1';
         var searchparm = kno ;
 
-
          $.ajax({
                 type: "GET",
              url: '/ComplaintRegistration/GetList',
@@ -137,17 +136,17 @@
                             footer: 'Sandha & Co.'
                         })
                     }
-                    if (serviceEnable == false && consumerType == 1) {
-                        $('#submitComplaint').prop('disabled', true);
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'info',
-                            text: 'Consumer is Disconnected or No Consumer Exist',
-                            footer: 'Sandha & Co.'
-                        })
-                    } else {
+                    //if (serviceEnable == false && consumerType == 1) {
+                    //    $('#submitComplaint').prop('disabled', true);
+                    //    Swal.fire({
+                    //        icon: 'info',
+                    //        title: 'info',
+                    //        text: 'Consumer is Disconnected or No Consumer Exist',
+                    //        footer: 'Sandha & Co.'
+                    //    })
+                    //} else {
                         $('#submitComplaint').prop('disabled', false);
-                    }
+                    //}
                 },
                 error: function (errormessage) {
                     alert(errormessage.responseText);

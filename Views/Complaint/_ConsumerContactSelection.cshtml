@@ -115,9 +115,9 @@
                             nos = item.COMPLAINT_NO;
                         }
                         if (key == 0) {
-                            if (item.CONSUMER_STATUS == 'R' || item.CONSUMER_STATUS == 'N' || item.CONSUMER_STATUS == 'F' || item.CONSUMER_STATUS == 'D' || item.CONSUMER_STATUS == 'P') {
-                                serviceEnable = true;
-                            }
+                            //if (item.CONSUMER_STATUS == 'R' || item.CONSUMER_STATUS == 'N' || item.CONSUMER_STATUS == 'F' || item.CONSUMER_STATUS == 'D' || item.CONSUMER_STATUS == 'P') {
+                            //    serviceEnable = true;
+                            //}
                             $('#SDO_CODE').val(item.SDO_CODE);
                             $('#ADDRESS1').val(item.ADDRESS1);
                             $('#ADDRESS2').val(item.ADDRESS2);
@@ -152,17 +152,17 @@
                             footer: 'Sandha & Co.'
                         })
                     }
-                    if (serviceEnable == false && consumerType == 1) {
-                        $('#submitComplaint').prop('disabled', true);
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'info',
-                            text: 'Consumer is Disconnected or No Consumer Exist',
-                            footer: 'Sandha & Co.'
-                        })
-                    } else {
+                    //if (serviceEnable == false && consumerType == 1) {
+                    //    $('#submitComplaint').prop('disabled', true);
+                    //    Swal.fire({
+                    //        icon: 'info',
+                    //        title: 'info',
+                    //        text: 'Consumer is Disconnected or No Consumer Exist',
+                    //        footer: 'Sandha & Co.'
+                    //    })
+                    //} else {
                         $('#submitComplaint').prop('disabled', false);
-                    }
+                    //}
                 },
                 error: function (errormessage) {
                     alert(errormessage.responseText);

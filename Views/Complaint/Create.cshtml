@@ -385,17 +385,17 @@
                             footer: 'Sandha & Co.'
                         })
                     }
-                    if (serviceEnable == false && consumerType == 1) {
-                        $('#submitComplaint').prop('disabled', true);
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'info',
-                            text: 'Consumer is Disconnected or No Consumer Exist',
-                            footer: 'Sandha & Co.'
-                        })
-                    } else {
+                    //if (serviceEnable == false && consumerType == 1) {
+                    //    $('#submitComplaint').prop('disabled', true);
+                    //    Swal.fire({
+                    //        icon: 'info',
+                    //        title: 'info',
+                    //        text: 'Consumer is Disconnected or No Consumer Exist',
+                    //        footer: 'Sandha & Co.'
+                    //    })
+                    //} else {
                         $('#submitComplaint').prop('disabled', false);
-                    }
+                    //}
                 },
                 error: function (errormessage) {
                     alert(errormessage.responseText);
@@ -795,9 +795,7 @@
                 },
                 "searchKno": {
                     required: false,
-                    number: true,
-                    minlength: 12,
-                    maxlength: 12
+                    number: true
                 },
                 "searchmobileno": {
                     required: false,
@@ -826,9 +824,7 @@
                 },
                 "KNO": {
                     required: false,
-                    number: true,
-                    minlength: 12,
-                    maxlength: 12
+                    number: true
                 },
                 "MOBILE_NO": {
                     required: true,
@@ -838,9 +834,7 @@
                 },
                 "ALTERNATE_MOBILE_NO": {
                     required: false,
-                    number: true,
-                    minlength: 10,
-                    maxlength: 10
+                    number: true
                 },
                 "ASSIGNEEId": {
                     required: false,

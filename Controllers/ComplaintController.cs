@@ -265,7 +265,7 @@ namespace ComplaintTracker.Controllers
 
                     // Initialization.   
                     dataObject.COMPLAINT_NO = string.IsNullOrEmpty(Request.Form.GetValues("COMPLAINT_NO")[0]) ? 0 : Convert.ToInt64(Request.Form.GetValues("COMPLAINT_NO")[0]);
-                    dataObject.KNO = string.IsNullOrEmpty(Request.Form.GetValues("KNO")[0]) ? 0 : Convert.ToInt64(Request.Form.GetValues("KNO")[0]);
+                    dataObject.KNO = string.IsNullOrEmpty(Request.Form.GetValues("KNO")[0]) ? "" : (Request.Form.GetValues("KNO")[0]);
                     dataObject.MOBILE_NO = Convert.ToString(Request.Form.GetValues("MOBILE_NO")[0]);
                     dataObject.COMPLAINT_TYPE = Convert.ToString(Request.Form.GetValues("COMPLAINT_TYPE")[0]);
                     dataObject.OFFICE_ID = Convert.ToString(Request.Form.GetValues("OFFICE_ID")[0]);
@@ -309,7 +309,7 @@ namespace ComplaintTracker.Controllers
 
             // Initialization.   
             dataObject.COMPLAINT_NO = String.IsNullOrEmpty(searchComplaintno) ? 0 : Convert.ToInt64(searchComplaintno);
-            dataObject.KNO = String.IsNullOrEmpty(searchKno) ? 0 : Convert.ToInt64(searchKno);
+            dataObject.KNO = String.IsNullOrEmpty(searchKno) ? "" : (searchKno);
             dataObject.MOBILE_NO = searchmobileno;
             dataObject.COMPLAINT_TYPE = ComplaintTypeId;
             dataObject.OFFICE_ID = ddlOfficecode;

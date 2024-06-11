@@ -8,7 +8,7 @@ namespace ComplaintTracker.Models
 {
     public class ModelSearchComplaint : DataTableAjaxPostModel
     {
-        public Int64 KNO { get; set; }
+        public string KNO { get; set; }
         public string NAME { get; set; }
         public string COMPLAINT_DATE { get; set; }
         public string DURATION { get; set; }

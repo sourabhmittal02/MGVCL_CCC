@@ -850,7 +850,7 @@ namespace ComplaintTracker.DAL
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     objBlank = new ModelSearchComplaint();
-                    objBlank.KNO = Convert.ToInt64(dr.ItemArray[0].ToString());
+                    objBlank.KNO = (dr.ItemArray[0].ToString());
                     objBlank.NAME = dr.ItemArray[1].ToString();
                     objBlank.COMPLAINT_DATE = dr.ItemArray[2].ToString();
                     objBlank.DURATION = dr.ItemArray[3].ToString();
@@ -1522,7 +1522,7 @@ namespace ComplaintTracker.DAL
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 objBlank = new ModelSearchComplaint();
-                objBlank.KNO = Convert.ToInt64(dr.ItemArray[0].ToString());
+                objBlank.KNO = (dr.ItemArray[0].ToString());
                 objBlank.NAME = dr.ItemArray[1].ToString();
                 objBlank.COMPLAINT_DATE = dr.ItemArray[2].ToString().Substring(0, 10);
                 objBlank.COMPLAINT_NO = Convert.ToInt64(dr.ItemArray[3].ToString());
