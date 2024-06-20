@@ -208,11 +208,18 @@
                         </div>
                     </div>
                     <div class="row mb-1">
-                        <div class="col-md-6">
-                            <label for="ddlOutage2">Outage Type 2<font color="Red"> *</font></label>
-                            <select id="ddlOutage2" class="form-control" required>
-                            </select>
+                        @*<div class="col-md-6">
+            <label for="ddlOutage2">Outage Type 2<font color="Red"> *</font></label>
+            <select id="ddlOutage2" class="form-control" required>
+            </select>
 
+
+        </div>*@
+                        <div class="col-md-6">
+                            <label for="StatusBeforeRectification">StatusBeforeRectification</label>
+                            @Html.EditorFor(model => model.StatusBeforeRectification, new { htmlAttributes = new { placeholder = "StatusBeforeRectification", @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.StatusBeforeRectification, "", new { @class = "text-danger" })
 
                         </div>
                         <div class="col-md-6">
@@ -223,7 +230,7 @@
 
                         </div>
                     </div>
-                    <div class="row mb-1">
+                    @*<div class="row mb-1">
                         <div class="col-md-6">
                             <label for="ddlCause">Cause</label>
                             <select id="ddlCause" class="form-control">
@@ -237,7 +244,7 @@
                             @Html.ValidationMessageFor(model => model.StatusBeforeRectification, "", new { @class = "text-danger" })
 
                         </div>
-                    </div>
+                    </div>*@
                     <div class="row mb-1">
                         <div class="col-md-6">
                             <label for="StatusAfterRectification">StatusAfterRectification</label>

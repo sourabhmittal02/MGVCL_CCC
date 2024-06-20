@@ -115,37 +115,43 @@
                     $('#ComplaintTypeId').val(0);
                     $('h5').text('Complaint Type => ALL');
                 }
-                else if (this.value == 'BillRelated') {
+                else if (this.value == 'BillingComplaint') {
                     $('#ComplaintTypeId').val(2);
                 }
-                else if (this.value == 'MeterRelated') {
+                else if (this.value == 'MeterRelatedComplaint') {
                     $('#ComplaintTypeId').val(3);
                 }
-                else if (this.value == 'NoCurrentComplaint') {
+                else if (this.value == 'PowerComplaint') {
                     $('#ComplaintTypeId').val(4);
                 }
                 else if (this.value == 'OtherComplaint') {
                     $('#ComplaintTypeId').val(5);
                 }
-                else if (this.value == 'SafetyRelated') {
+                else if (this.value == 'SafetyComplaint') {
                     $('#ComplaintTypeId').val(6);
                 }
-                else if (this.value == 'ServiceLineRelated') {
+                else if (this.value == 'ServiceConn.Complaint') {
                     $('#ComplaintTypeId').val(11);
                 }
-                else if (this.value == 'Transformer Burnt') {
+                else if (this.value == 'TransformerRelated') {
                     $('#ComplaintTypeId').val(8);
                 }
-                else if (this.value == 'Theft Information') {
+                else if (this.value == 'TheftComplaint') {
                     $('#ComplaintTypeId').val(9);
                 }
-                else if (this.value == 'On Door Connection Request') {
+                else if (this.value == 'QualityofPowerComplaint') {
                     $('#ComplaintTypeId').val(10);
                 }
-                else if (this.value == 'ServiceLineRelated') {
+                else if (this.value == 'OverHeadLinesComplaint') {
                     $('#ComplaintTypeId').val(11);
-                } else if (this.value == 'Dengerous Complaint') {
+                } else if (this.value == 'PaymentComplaint') {
                     $('#ComplaintTypeId').val(12);
+                } else if (this.value == 'SolarComplaint') {
+                    $('#ComplaintTypeId').val(13);
+                } else if (this.value == 'RefundRelatedComplaint') {
+                    $('#ComplaintTypeId').val(14);
+                } else if (this.value == 'SmartMeterRelatedcomplaints') {
+                    $('#ComplaintTypeId').val(15);
                 }
 
             });
@@ -181,32 +187,34 @@
             var Complainttype = 0;
             if ($('#All').prop('checked')) {
                 Complainttype = 0;
-            } else if ($('#BillRelated').prop('checked')) {
+            } else if ($('#BillingComplaint').prop('checked')) {
                 Complainttype = 2;
-            } else if ($('#MeterRelated').prop('checked')) {
+            } else if ($('#MeterRelatedComplaint').prop('checked')) {
                 Complainttype = 3;
-            } else if ($('#NoCurrentComplaint').prop('checked')) {
+            } else if ($('#PowerComplaint').prop('checked')) {
                 Complainttype = 4;
             } else if ($('#OtherComplaint').prop('checked')) {
                 Complainttype = 5;
-            } else if ($('#SafetyRelated').prop('checked')) {
+            } else if ($('#SafetyComplaint').prop('checked')) {
                 Complainttype = 6;
-            } else if ($('#ServiceConnectionRelated').prop('checked')) {
+            } else if ($('#ServiceConn.Complaint').prop('checked')) {
                 Complainttype = 7;
-            } else if ($('#TransformerBurnt').prop('checked')) {
+            } else if ($('#TransformerRelated').prop('checked')) {
                 Complainttype = 8;
-            } else if ($('#TheftInformation').prop('checked')) {
+            } else if ($('#TheftComplaint').prop('checked')) {
                 Complainttype = 9;
-            } else if ($('#VoltageRelated').prop('checked')) {
+            } else if ($('#QualityofPowerComplaint').prop('checked')) {
                 Complainttype = 10;
-            } else if ($('#ServiceLineRelated').prop('checked')) {
+            } else if ($('#OverHeadLinesComplaint').prop('checked')) {
                 Complainttype = 11;
-            } else if ($('#PoleRelated').prop('checked')) {
+            } else if ($('#PaymentComplaint').prop('checked')) {
                 Complainttype = 12;
-            } else if ($('#HarassmentByDiscomEmployee').prop('checked')) {
+            } else if ($('#SolarComplaint').prop('checked')) {
                 Complainttype = 13;
-            } else if ($('#ServiceRequest').prop('checked')) {
+            } else if ($('#RefundRelatedComplaint').prop('checked')) {
                 Complainttype = 14;
+            } else if ($('#SmartMeterRelatedcomplaints').prop('checked')) {
+                Complainttype = 15;
             }
 
             $('#ComplaintTypeId').val(Complainttype);
@@ -231,45 +239,48 @@
                 Complainttype = 0;
                 $('h5').text('Complaint Type => ALL');
 
-            } else if ($('#BillRelated').prop('checked')) {
+            } else if ($('#BillingComplaint').prop('checked')) {
                 Complainttype = 2;
-                $('h5').text('Complaint Type => BillRelated');
-            } else if ($('#MeterRelated').prop('checked')) {
+                $('h5').text('Complaint Type => Billing Complaint');
+            } else if ($('#MeterRelatedComplaint').prop('checked')) {
                 Complainttype = 3;
-                $('h5').text('Complaint Type => Meter Related');
-            } else if ($('#NoCurrentComplaint').prop('checked')) {
+                $('h5').text('Complaint Type => Meter Related Complaint');
+            } else if ($('#PowerComplaint').prop('checked')) {
                 Complainttype = 4;
-                $('h5').text('Complaint Type => No Current Complaint');
+                $('h5').text('Complaint Type => Power Complaint');
             } else if ($('#OtherComplaint').prop('checked')) {
                 Complainttype = 5;
                 $('h5').text('Complaint Type => Other Complaint');
-            } else if ($('#SafetyRelated').prop('checked')) {
+            } else if ($('#SafetyComplaint').prop('checked')) {
                 Complainttype = 6;
-                $('h5').text('Complaint Type => Safety Related');
-            } else if ($('#ServiceConnectionRelated').prop('checked')) {
+                $('h5').text('Complaint Type => Safety Complaint');
+            } else if ($('#ServiceConn.Complaint').prop('checked')) {
                 Complainttype = 7;
-                $('h5').text('Complaint Type => Service Connection Related');
-            } else if ($('#TransformerBurnt').prop('checked')) {
+                $('h5').text('Complaint Type => Service Conn. Complaint');
+            } else if ($('#TransformerRelated').prop('checked')) {
                 Complainttype = 8;
-                $('h5').text('Complaint Type => Transformer Burnt');
-            } else if ($('#TheftInformation').prop('checked')) {
+                $('h5').text('Complaint Type => Transformer Related');
+            } else if ($('#TheftComplaint').prop('checked')) {
                 Complainttype = 9;
-                $('h5').text('Complaint Type => Theft Information');
-            } else if ($('#VoltageRelated').prop('checked')) {
+                $('h5').text('Complaint Type => Theft Complaint');
+            } else if ($('#QualityofPowerComplaint').prop('checked')) {
                 Complainttype = 10;
-                $('h5').text('Complaint Type => Voltage Related');
-            } else if ($('#ServiceLineRelated').prop('checked')) {
+                $('h5').text('Complaint Type => Quality of Power Complaint');
+            } else if ($('#OverHeadLinesComplaint').prop('checked')) {
                 Complainttype = 11;
-                $('h5').text('Complaint Type => Service Line Related');
-            } else if ($('#PoleRelated').prop('checked')) {
+                $('h5').text('Complaint Type => Over Head Lines Complaint');
+            } else if ($('#PaymentComplaint').prop('checked')) {
                 Complainttype = 12;
-                $('h5').text('Complaint Type => Pole Related');
-            } else if ($('#HarassmentByDiscomEmployee').prop('checked')) {
+                $('h5').text('Complaint Type => Payment Complaint');
+            } else if ($('#SolarComplaint').prop('checked')) {
                 Complainttype = 13;
-                $('h5').text('Complaint Type => Harassment By Discom Employee');
-            } else if ($('#ServiceRequest').prop('checked')) {
+                $('h5').text('Complaint Type => Solar Complaint');
+            } else if ($('#RefundRelatedComplaint').prop('checked')) {
                 Complainttype = 14;
-                $('h5').text('Complaint Type => Service Request');
+                $('h5').text('Complaint Type => Refund Related Complaint');
+            } else if ($('#SmartMeterRelatedcomplaints').prop('checked')) {
+                Complainttype = 15;
+                $('h5').text('Complaint Type => Smart Meter Related complaints');
             }
             $('#ComplaintTypeId').val(Complainttype);
             dataObject.COMPLAINT_NO = $('#txtComplaintno').val();
@@ -300,7 +311,7 @@
                         d.OFFICE_ID = dataObject.OFFICE_ID;
                         d.COMPLAINT_SOURCE = dataObject.COMPLAINT_SOURCE;
                         d.COMPLAINT_status = dataObject.COMPLAINT_status;
-                        d.assigned_status = dataObject.assigned_status;
+                        d.assigned_status = "0";
                         d.fromdate = dataObject.fromdate;
                         d.todate = dataObject.todate;
                         d.currentStatus = dataObject.currentStatus;
@@ -886,34 +897,52 @@
                                 <input class="form-control searchtag" id="txtComplaintno" name="searchComplaintno" type="text" value="" placeholder="Complaint No." />
                             </div>
                             <div class="col-12 col-lg-6">
-                                <input class="form-control searchtag" id="txtsearchKno" name="searchKno" type="text" value="" placeholder="K No." />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-12 col-lg-6">
-                                <input class="form-control searchtag" id="txtaccountNo" name="searchaccountno" type="text" value="" placeholder="Account No./Binder No." />
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <input class="form-control searchtag" id="txtmobileno" name="searchmobileno" type="text" value="" placeholder="Mobile No." />
+                                <input class="form-control searchtag" id="txtsearchKno" name="searchKno" type="text" value="" placeholder="Consumer No." />
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-12 col-lg-6">
                                 @Html.DropDownList("ddlOfficecode", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control", id = "ddlOfficecode" })
                             </div>
+                            @*<div class="col-12 col-lg-6">
+                                <input class="form-control searchtag" id="txtaccountNo" name="searchaccountno" type="text" value="" placeholder="Account No./Binder No." hidden />
+                            </div>*@
+                            <div class="col-12 col-lg-6">
+                                <input class="form-control searchtag" id="txtmobileno" name="searchmobileno" type="text" value="" placeholder="Mobile No." />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            @*<div class="col-12 col-lg-6">
+            <input class="form-control searchtag" id="txtaccountNo" name="searchaccountno" type="text" value="" placeholder="Account No./Binder No." hidden />
+        </div>*@
                             <div class="col-12 col-lg-3">
                                 @Html.DropDownList("ddlSource", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control", id = "ddlSource" })
                             </div>
                             <div class="col-12 col-lg-3">
-                                @Html.DropDownList("ddlassigned", new List<SelectListItem>
+                                @Html.TextBox("fromDate", string.Format("{0:yyyy-MM-dd}", fromDate), new { @class = "form-control mb-1", type = "date" })
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                @Html.TextBox("toDate", string.Format("{0:yyyy-MM-dd}", toDate), new { @class = "form-control mb-1", type = "date" })
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                @Html.DropDownList("ddlstatus", new List<SelectListItem>
                                {
                                new SelectListItem{ Text="All", Value = "0" },
-                                   new SelectListItem{ Text="Assigned", Value = "1" },
-                                   new SelectListItem{ Text="UnAssigned", Value = "2" },
-                                }, new { @class = "form-control", id = "ddlCurrentassigned" })
+                                   new SelectListItem{ Text="Pending", Value = "1" },
+                                   new SelectListItem{ Text="Closed", Value = "2" },
+                                     new SelectListItem{ Text="ReOpen", Value = "3" },
+                                }, new { @class = "form-control", id = "ddlCurrentStatus", name = "ddlstatus" })
                             </div>
+                            @*<div class="col-12 col-lg-3">
+            @Html.DropDownList("ddlassigned", new List<SelectListItem>
+           {
+           new SelectListItem{ Text="All", Value = "0" },
+               new SelectListItem{ Text="Assigned", Value = "1" },
+               new SelectListItem{ Text="UnAssigned", Value = "2" },
+            }, new { @class = "form-control", id = "ddlCurrentassigned" })
+        </div>*@
                         </div>
-                        <div class="row mb-2">
+                        <!--<div class="row mb-2">
                             <div class="col-12 col-lg-3">
                                 @Html.TextBox("fromDate", string.Format("{0:yyyy-MM-dd}", fromDate), new { @class = "form-control mb-1", type = "date" })
                             </div>
@@ -932,11 +961,11 @@
                             <div class="col-12 col-lg-3">
                                 <select id="ddlFRTNo" class="form-control">
                                 </select>
-                            </div>
+                            </div>-->
                             @*<div class="col-12 col-lg-1">
                                     <button type="button" class="btn btn-success"  onclick="callKno(mobile.value)"><i class="align-middle me-2 fas fa-fw fa-phone" data-toggle="tooltip" data-placement="top" title="call to frt"> </i></button>
                                 </div>*@
-                        </div>
+                        <!--</div>-->
                         <!--Complaint Type-->
                         <div class="row mb-2">
                             <div class="col-12 col-lg-12">

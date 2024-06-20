@@ -1679,8 +1679,8 @@ namespace ComplaintTracker.DAL
             SqlParameter[] param ={
                 new SqlParameter("@complaint_no",modelRemark.ComplaintNo),
                     new SqlParameter("@OUTAGE_TYPE",modelRemark.OutageTypeCollectionId1),
-                    new SqlParameter("@OUTAGE_SUB_TYPE",modelRemark.OutageTypeCollectionId2),
-                    new SqlParameter("@OUTAGE_CAUSE",modelRemark.CauseCollectionId),
+                    new SqlParameter("@OUTAGE_SUB_TYPE",0),
+                    new SqlParameter("@OUTAGE_CAUSE",0),
                     new SqlParameter("@STATUS_BEFORE_RECTIFICATION",modelRemark.StatusBeforeRectification),
                     new SqlParameter("@STATUS_AFTER_RECTIFICATION",modelRemark.StatusAfterRectification),
                     new SqlParameter("@USER_ID",UserID),

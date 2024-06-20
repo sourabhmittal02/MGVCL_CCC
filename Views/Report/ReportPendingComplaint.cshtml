@@ -352,47 +352,50 @@
         $('input[type=radio][name=options]').change(function () {
             if (this.value == 'ALL') {
                 $('#ComplaintTypeId').val(1);
-                $('h4').text('Complaint Type => ALL');
+                $('h5').text('Complaint Type => ALL');
             }
-            else if (this.value == 'BillRelated') {
-                $('#ComplaintTypeId').val(2);
-                $('h4').text('Complaint Type => BillRelated');
-            }
-            else if (this.value == 'MeterRelated') {
-                $('#ComplaintTypeId').val(3);
-                $('h4').text('Complaint Type => MeterRelated');
-            }
-            else if (this.value == 'NoCurrent') {
-                $('#ComplaintTypeId').val(4);
-                $('h4').text('Complaint Type => NoCurrent');
-            }
-            else if (this.value == 'OtherComplaint') {
-                $('#ComplaintTypeId').val(5);
-                $('h4').text('Complaint Type => OtherComplaint');
-            }
-            else if (this.value == 'SaftyRelated') {
-                $('#ComplaintTypeId').val(6);
-                $('h4').text('Complaint Type => SaftyRelated');
-            }
-            else if (this.value == 'OnHarassmentByDiscomEmployee') {
-                $('#ComplaintTypeId').val(13);
-                $('h4').text('Complaint Type => OnHarassmentByDiscomEmployee');
-            }
-            else if (this.value == 'TheftInformation') {
-                $('#ComplaintTypeId').val(9);
-                $('h4').text('Complaint Type => TheftInformation');
-            }
-            else if (this.value == 'TransformerBurnt') {
-                $('#ComplaintTypeId').val(8);
-                $('h4').text('Complaint Type => TransformerBurnt');
-            }
-            else if (this.value == 'ServiceLineRelated') {
-                $('#ComplaintTypeId').val(11);
-                $('h4').text('Complaint Type => ServiceLineRelated');
-            }
-            else if (this.value == 'ServiceRequest') {
-                $('#ComplaintTypeId').val(14);
-                $('h4').text('Complaint Type => ServiceRequest');
+            else if ($('#BillingComplaint').prop('checked')) {
+                Complainttype = 2;
+                $('h5').text('Complaint Type => Billing Complaint');
+            } else if ($('#MeterRelatedComplaint').prop('checked')) {
+                Complainttype = 3;
+                $('h5').text('Complaint Type => Meter Related Complaint');
+            } else if ($('#PowerComplaint').prop('checked')) {
+                Complainttype = 4;
+                $('h5').text('Complaint Type => Power Complaint');
+            } else if ($('#OtherComplaint').prop('checked')) {
+                Complainttype = 5;
+                $('h5').text('Complaint Type => Other Complaint');
+            } else if ($('#SafetyComplaint').prop('checked')) {
+                Complainttype = 6;
+                $('h5').text('Complaint Type => Safety Complaint');
+            } else if ($('#ServiceConn.Complaint').prop('checked')) {
+                Complainttype = 7;
+                $('h5').text('Complaint Type => Service Conn. Complaint');
+            } else if ($('#TransformerRelated').prop('checked')) {
+                Complainttype = 8;
+                $('h5').text('Complaint Type => Transformer Related');
+            } else if ($('#TheftComplaint').prop('checked')) {
+                Complainttype = 9;
+                $('h5').text('Complaint Type => Theft Complaint');
+            } else if ($('#QualityofPowerComplaint').prop('checked')) {
+                Complainttype = 10;
+                $('h5').text('Complaint Type => Quality of Power Complaint');
+            } else if ($('#OverHeadLinesComplaint').prop('checked')) {
+                Complainttype = 11;
+                $('h5').text('Complaint Type => Over Head Lines Complaint');
+            } else if ($('#PaymentComplaint').prop('checked')) {
+                Complainttype = 12;
+                $('h5').text('Complaint Type => Payment Complaint');
+            } else if ($('#SolarComplaint').prop('checked')) {
+                Complainttype = 13;
+                $('h5').text('Complaint Type => Solar Complaint');
+            } else if ($('#RefundRelatedComplaint').prop('checked')) {
+                Complainttype = 14;
+                $('h5').text('Complaint Type => Refund Related Complaint');
+            } else if ($('#SmartMeterRelatedcomplaints').prop('checked')) {
+                Complainttype = 15;
+                $('h5').text('Complaint Type => Smart Meter Related complaints');
             }
 
         });

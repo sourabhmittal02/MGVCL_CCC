@@ -26,8 +26,8 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <p class="text-sm text-secondary fw-bold">
-                            Resolved By FRT
-                            <input id="toggle-eventConfirm" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="sm">
+                            
+                            <input id="toggle-eventConfirm" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="sm" hidden>
                             @Html.ValidationMessageFor(model => model.IsResolvedByFrt, "", new { @class = "text-danger" })
                         </p>
 
