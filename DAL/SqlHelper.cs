@@ -68,7 +68,7 @@ namespace ComplaintTracker.DAL
                      p.Direction == ParameterDirection.Input) &&
                     (p.Value == null))
                 {
-                    p.Value = DBNull.Value;
+                    p.Value = DBNull.Value; 
                 }
                 command.Parameters.Add(p);
             }

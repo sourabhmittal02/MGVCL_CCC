@@ -59,7 +59,7 @@ namespace DirectComplaintRegister.DAL
         /// <param name="commandParameters">An array of SqlParameters to be added to command</param>
         private static void AttachParameters(SqlCommand command, IEnumerable<SqlParameter> commandParameters)
         {
-            if (command == null) throw new ArgumentNullException("command");
+            if (command == null) throw new ArgumentNullException("command"); 
             if (commandParameters == null) return;
             foreach (var p in commandParameters.Where(p => p != null))
             {
