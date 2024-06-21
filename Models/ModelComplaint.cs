@@ -39,7 +39,24 @@ namespace ComplaintTracker.Models
         public string Condition { get; set; }
         public string val { get; set; }
     }
+    public class ModelComplaintSendToCMS
+    {
+        public string compl_number { get; set; }
+        public string cons_no { get; set; }
+        public string compl_category { get; set; }
+        public string compl_subcategory { get; set; }
+        public string complaint_source { get; set; }
+        public string compl_Details { get; set; }
+        public string consumer_mobile { get; set; }
+    }
 
+    public class ModelComplaintSendStatusToCMS
+    {
+        public string compl_number { get; set; }
+        public string compl_status { get; set; }
+        public string compl_action_reason { get; set; }
+        public string compl_action_description { get; set; }
+    }
     public class COMPLAINT
     {
         public bool IsResolvedByFrt { get; set; }

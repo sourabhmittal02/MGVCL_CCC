@@ -196,6 +196,46 @@ namespace ComplaintTracker.ExternalAPI
             }
         }
 
+        public async Task<string> SendComplaintRegisterToCMS(ModelComplaintSendToCMS modelsms)
+        {
+            var client = new RestClient(MGVCLComplaintApiURL + "/SendComplaintRegisterToCMS");
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelsms);
+            var response = await client.ExecuteAsync(restRequest);
+            //response.Content
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Content;
+            }
+            else
+            {
+                return response.Content;
+            }
+        }
+
+        public async Task<string> SendComplaintStatusToCMS(ModelComplaintSendStatusToCMS modelsms)
+        {
+            var client = new RestClient(MGVCLComplaintApiURL + "/SendComplaintStatusToCMS");
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelsms);
+            var response = await client.ExecuteAsync(restRequest);
+            //response.Content
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Content;
+            }
+            else
+            {
+                return response.Content;
+            }
+        }
+
         public async Task<string> RegisterComplaintSendSMSWebEng(ModelSmsAPISendSMS modelsms)
         {
             var client = new RestClient(MGVCLComplaintApiURL + "/" + SendSmsWeb + "?TYPE=E");
