@@ -347,6 +347,8 @@ namespace ComplaintTracker.DAL
                 {
                     if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
                     {
+                        if (modelComplaint.KNO == null)
+                            modelComplaint.KNO = "0";
                         ModelComplaintSendToCMS modelComplaintSendToCMS= new ModelComplaintSendToCMS();
                         modelComplaintSendToCMS.compl_number = retStatus.ToString();
                         modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
@@ -523,6 +525,8 @@ namespace ComplaintTracker.DAL
 
                 if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
                 {
+                    if (modelComplaint.KNO == null)
+                        modelComplaint.KNO = "0";
                     ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
                     modelComplaintSendToCMS.compl_number = retStatus.ToString();
                     modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
@@ -679,6 +683,8 @@ namespace ComplaintTracker.DAL
 
                 if (retStatus > 0)
                 {
+                    if (modelComplaint.KNO == null)
+                        modelComplaint.KNO = "0";
                     ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
                     modelComplaintSendToCMS.compl_number = retStatus.ToString();
                     modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
@@ -1468,6 +1474,25 @@ namespace ComplaintTracker.DAL
                     retStatus = Convert.ToInt32(param[7].Value);
                 else
                     retStatus = 0;
+
+                if(retStatus>0)
+                {
+                    SqlParameter[] param1 ={
+                    new SqlParameter("@ASSIGNEEId",modelRemark.ASSIGNEEId)};
+                    string ASSIGNEE = "";
+                    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_ASSIGNEE_NAME", param1);
+                    //Bind Complaint generic list using dataRow     
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        ASSIGNEE = Convert.ToString(dr["ASSIGNEE"]);
+                    }
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
+                    modelComplaintSendToCMS.compl_status = "Complaint Assigned to "+ ASSIGNEE;
+                    modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned to " + ASSIGNEE;
+                    modelComplaintSendToCMS.compl_action_description = "Complaint Assigned";
+                    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
+                }
                 log.Information(modelRemark.MOBILE_NO.ToString());
                 
             }
