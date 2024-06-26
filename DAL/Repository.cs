@@ -1291,7 +1291,7 @@ namespace ComplaintTracker.DAL
             return (obj);
         }
 
-        public static async Task<Response> ChangeComplaintType_Save(COMPLAINT modelRemark, int UserID)
+        public static async Response ChangeComplaintType_Save(COMPLAINT modelRemark, int UserID)
         {
             Response response = new Response();
             string retStatus = "-1";
@@ -1350,7 +1350,7 @@ namespace ComplaintTracker.DAL
 
 
 
-             return response;
+             return response; 
 
         }
         public static List<ModelEsclatedCOmplaints> GetExclatedComplaintSummary(int OfficeCode, int ComplaintType, int SLAType)
@@ -1802,8 +1802,8 @@ namespace ComplaintTracker.DAL
                     //Bind Complaint generic list using dataRow     
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
-                        KNO = Convert.ToString(dr["COMPLAINT_TYPE"]);
-                        OutageType = Convert.ToString(dr["SUB_COMPLAINT_TYPE"]);
+                        KNO = Convert.ToString(dr["KNO"]);
+                        OutageType = Convert.ToString(dr["OUTAGE_TYPE"]);
                     }
                     ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
                     modelComplaintSendToCMS.compl_number = modelRemark.ComplaintNo.ToString();
