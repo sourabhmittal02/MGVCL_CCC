@@ -216,6 +216,46 @@ namespace ComplaintTracker.ExternalAPI
             }
         }
 
+        public async Task<string> SendComplaintRegisterNonConsumerToCMS(ModelComplaintSendNonConsumerToCMS modelsms)
+        {
+            var client = new RestClient(MGVCLComplaintApiURL + "/SendComplaintRegisterNonConsumerToCMS");
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelsms);
+            var response = await client.ExecuteAsync(restRequest);
+            //response.Content
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Content;
+            }
+            else
+            {
+                return response.Content;
+            }
+        }
+
+        public async Task<string> SendComplaintTagChangeToCMS(ModelComplaintTagChangeToCMS modelsms)
+        {
+            var client = new RestClient(MGVCLComplaintApiURL + "/SendComplaintTagChangeToCMS");
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelsms);
+            var response = await client.ExecuteAsync(restRequest);
+            //response.Content
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Content;
+            }
+            else
+            {
+                return response.Content;
+            }
+        }
+
         public async Task<string> SendComplaintStatusToCMS(ModelComplaintSendStatusToCMS modelsms)
         {
             var client = new RestClient(MGVCLComplaintApiURL + "/SendComplaintStatusToCMS");

@@ -1291,7 +1291,7 @@ namespace ComplaintTracker.DAL
             return (obj);
         }
 
-        public static Response ChangeComplaintType_Save(COMPLAINT modelRemark, int UserID)
+        public static async Task<Response> ChangeComplaintType_Save(COMPLAINT modelRemark, int UserID)
         {
             Response response = new Response();
             string retStatus = "-1";
@@ -1327,6 +1327,12 @@ namespace ComplaintTracker.DAL
                 if (parmretStatus.Value != DBNull.Value)
                 {
                     retStatus = parmretStatus.Value.ToString();
+                    ModelComplaintTagChangeToCMS modelComplaintSendToCMS = new ModelComplaintTagChangeToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO;
+                    modelComplaintSendToCMS.compl_category = modelRemark.ComplaintTypeId.ToString();
+                    modelComplaintSendToCMS.compl_subcategory = modelRemark.SUB_COMPLAINT_TYPE_ID.ToString();
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintTagChangeToCMS(modelComplaintSendToCMS);
                 }
                 if (parmretMsg.Value != DBNull.Value)
                 {
@@ -1344,7 +1350,7 @@ namespace ComplaintTracker.DAL
 
 
 
-             return response; ;
+             return response;
 
         }
         public static List<ModelEsclatedCOmplaints> GetExclatedComplaintSummary(int OfficeCode, int ComplaintType, int SLAType)

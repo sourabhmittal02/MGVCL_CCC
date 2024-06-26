@@ -441,8 +441,8 @@ namespace ComplaintTracker.Controllers
         [HttpGet]
         public JsonResult ccomplaint(COMPLAINT model)
         {
-                //Save To database Logic write here
-                Response data = Repository.ChangeComplaintType_Save(model, Convert.ToInt32(Session["UserID"].ToString()));
+            //Save To database Logic write here
+            Task<Response> data = Repository.ChangeComplaintType_Save(model, Convert.ToInt32(Session["UserID"].ToString()));
                 return Json(data, JsonRequestBehavior.AllowGet);
 
         }

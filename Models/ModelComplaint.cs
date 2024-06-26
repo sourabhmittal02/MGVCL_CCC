@@ -49,6 +49,26 @@ namespace ComplaintTracker.Models
         public string compl_Details { get; set; }
         public string consumer_mobile { get; set; }
     }
+    public class ModelComplaintSendNonConsumerToCMS
+    {
+        public string compl_number { get; set; }
+        public string compl_category { get; set; }
+        public string compl_subcategory { get; set; }
+        public string complaint_source { get; set; }
+        public string compl_Details { get; set; }
+        public string consumer_mobile { get; set; }
+        public string email_id { get; set; }
+        public string consumer_name { get; set; }
+        public string address1 { get; set; }
+        public string address2 { get; set; }
+        public string VlgID { get; set; }
+    }
+    public class ModelComplaintTagChangeToCMS
+    {
+        public string compl_number { get; set; }
+        public string compl_category { get; set; }
+        public string compl_subcategory { get; set; }
+    }
 
     public class ModelComplaintSendStatusToCMS
     {
