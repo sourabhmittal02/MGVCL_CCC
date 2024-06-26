@@ -58,6 +58,7 @@ namespace ComplaintTracker.Controllers
         public ActionResult AccountLogin(ModelUser user)
         {
             //SendOTPSms("8769576997", "123456");
+            string s = Utility.DecryptText(user.Password.Trim());
             SqlParameter[] param ={
                     new SqlParameter("@Username",user.LoginId.Trim()),
                     new SqlParameter("@Password",Utility.EncryptText(user.Password.Trim()) )

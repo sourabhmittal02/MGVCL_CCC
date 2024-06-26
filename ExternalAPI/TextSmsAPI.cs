@@ -196,7 +196,36 @@ namespace ComplaintTracker.ExternalAPI
             }
         }
 
-        public async Task<string> RegisterComplaintSendSMSWebEng(ModelSmsAPISendSMS modelsms)
+
+        public async Task<string> RegisterComplaintSendSMSWeb1111(ModelSmsAPISendSMS modelsms)
+        {
+            string MGVCLCMSComplaintURL = System.Configuration.ConfigurationManager.AppSettings["MGVCLCMSComplaintURL"];
+        var client = new HttpClient();
+        var request = new HttpRequestMessage(HttpMethod.Post, MGVCLCMSComplaintURL);
+        var content = new MultipartFormDataContent();
+        content.Add(new StringContent("kfdkd0=t6rjjo^&tgql#+yph&h=e%i6o$^6hz=r!njfkerz!"), "secret_key");
+        content.Add(new StringContent("h&gccg8*2q8#s#jbcx@xk9#kl6zhr-hf#_q0ij4g(*52p8(#65"), "token");
+        content.Add(new StringContent("LaunchComplaint"), "tag");
+        content.Add(new StringContent("1"), "p_compl_number");
+        content.Add(new StringContent("00101311753"), "cons_no");
+        content.Add(new StringContent(System.DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")), "reg_date");
+        content.Add(new StringContent("ok"), "compl_category");
+        content.Add(new StringContent("OK"), "compl_subcategory");
+        content.Add(new StringContent("AAAA"), "compl_Details");
+        content.Add(new StringContent("9828031268"), "consumer_mobile");
+        request.Content = content;
+        var response = await client.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+            
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+            return response.Content.ToString();
+        }
+
+
+
+
+public async Task<string> RegisterComplaintSendSMSWebEng(ModelSmsAPISendSMS modelsms)
         {
             var client = new RestClient(MGVCLComplaintApiURL + "/" + SendSmsWeb + "?TYPE=E");
             var restRequest = new RestRequest();
