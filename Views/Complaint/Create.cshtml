@@ -231,7 +231,7 @@
                 $('.conMobile').val('');
                 $("#divConsumer").animate({ "opacity": "hide", top: "100" }, 1000);
                 $("#divPublic").animate({ "opacity": "show", top: "100" }, 1000);
-
+                ConsumerVillageShow('321');
                 //$('#NAME').prop('disabled', false);
                 //$('#FATHER_NAME').prop('disabled', false);
                 //$('#KNO').prop('disabled', false);
@@ -480,7 +480,23 @@
             });
         }
 
-
+        var ConsumerVillageShow = function (recordId) {
+            var TeamDetailPostBackURL = '/Complaint/ConsumerVillageList';
+            $.ajax({
+                type: "GET",
+                url: TeamDetailPostBackURL,
+                contentType: "application/json; charset=utf-8",
+                data: { "searchparam": recordId },
+                datatype: "json",
+                success: function (data) {
+                    $('#loadRemarkPopUp').html(data);
+                    $("#VillageListPopup").modal('show');
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        }
     </script>
 }
 
@@ -764,6 +780,7 @@
         @Html.HiddenFor(model => model.JE_AREA)
         @Html.HiddenFor(model => model.CONSUMER_TYPE)
         @Html.HiddenFor(model => model.ComplaintSource)
+        @Html.HiddenFor(model => model.villageId)
     </div>
 }
 

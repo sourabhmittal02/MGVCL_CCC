@@ -164,6 +164,7 @@ namespace ComplaintTracker.Models
         public string excel_OFFICE_CODE { get; set; }
         public string excel_ComplaintStatus { get; set; }
         public string excel_ComplainttypeId { get; set; }
+        public int villageId { get; set; }
     }
 
     public class MST_SUB_COMPLAINT_TYPE

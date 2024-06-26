@@ -439,10 +439,22 @@ namespace ComplaintTracker.Controllers
         }
 
         [HttpGet]
-        public JsonResult ccomplaint(COMPLAINT model)
+        public async Task<JsonResult> ccomplaint(COMPLAINT model)
         {
             //Save To database Logic write here
-            Task<Response> data = Repository.ChangeComplaintType_Save(model, Convert.ToInt32(Session["UserID"].ToString()));
+            int Status = await Repository.ChangeComplaintType_Save(model, Convert.ToInt32(Session["UserID"].ToString()));
+            Response data = new Response();
+            if(Status==1)
+            {
+                data.status = "1";
+                data.message = "Complaint Type Changed...!";
+                
+            }
+            else
+            {
+                data.status = "-1";
+                data.message = "error in Changing Complaint Type Error in saving ...!";
+            }
                 return Json(data, JsonRequestBehavior.AllowGet);
 
         }
@@ -760,6 +772,28 @@ namespace ComplaintTracker.Controllers
             //return PartialView("_powerOutage", modelPowerOutage);
 
             //return Json(modelPowerOutages, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult ConsumerVillageList(string searchparam)
+        {
+            return PartialView("_VillageSelection");
+        }
+
+        [HttpGet]
+        public ActionResult GetVillageList()
+        {
+            List<ModelVillage> lstVillage = new List<ModelVillage>();
+            lstVillage = Repository.GetVillageMaster();
+            return Json(lstVillage, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult GetOfficebyVillage(string name)
+        {
+            List<ModelVillage> lstVillage = new List<ModelVillage>();
+            lstVillage = Repository.GetOfficeVillageWise(name);
+            return Json(lstVillage, JsonRequestBehavior.AllowGet);
         }
     }
 }
