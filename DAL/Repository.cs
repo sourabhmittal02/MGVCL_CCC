@@ -3928,8 +3928,8 @@ namespace ComplaintTracker.DAL
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 objBlank = new ModelVillage();
-                objBlank.Name = dr.ItemArray[2].ToString();
-                objBlank.Id = Convert.ToInt32(dr.ItemArray[0].ToString());
+                objBlank.Name = dr.ItemArray[3].ToString();
+                objBlank.Id = Convert.ToInt32(dr.ItemArray[2].ToString());
                 lstRoles.Add(objBlank);
             }
             return lstRoles;
