@@ -349,11 +349,11 @@ namespace ComplaintTracker.DAL
                     {
                         if (modelComplaint.KNO == null)
                             modelComplaint.KNO = "0";
-                        ModelComplaintSendToCMS modelComplaintSendToCMS= new ModelComplaintSendToCMS();
+                        ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
                         modelComplaintSendToCMS.compl_number = retStatus.ToString();
                         modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
                         modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
-                        modelComplaintSendToCMS.compl_subcategory=modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
+                        modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
                         modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
                         modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
                         modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
@@ -373,7 +373,7 @@ namespace ComplaintTracker.DAL
 
                 log.Information(retStatus.ToString());
 
-                
+
             }
             catch (Exception ex)
             {
@@ -576,7 +576,7 @@ namespace ComplaintTracker.DAL
                     //        Address = Convert.ToString(dr["Address"]);
                     //        Landmark = Convert.ToString(dr["LANDMARK"]);
                     //        MobileNo = Convert.ToString(dr["MOBILE_NO"]);
-                            
+
                     //    }
                     //    ModelSmsAPI modelSmsCCAPI = new ModelSmsAPI();
                     //    modelSmsCCAPI.To = "91" + ccMobileNo;
@@ -600,7 +600,7 @@ namespace ComplaintTracker.DAL
 
         }
 
-        public static async Task<Int64> SaveComplaintRegistration(COMPLAINT modelComplaint,string iMageName)
+        public static async Task<Int64> SaveComplaintRegistration(COMPLAINT modelComplaint, string iMageName)
         {
             Int64 retStatus = 0;
             Int64 retStatus1 = 0;
@@ -704,7 +704,7 @@ namespace ComplaintTracker.DAL
                     log.Information("In Image Save");
                     SqlParameter[] paramImg ={
                     new SqlParameter("@Complaint_NO",retStatus),
-                    new SqlParameter("@Image",iMageName) 
+                    new SqlParameter("@Image",iMageName)
                     };
 
                     SqlHelper.ExecuteNonQuery(HelperClass.Connection, CommandType.StoredProcedure, "Complaint_Image_Save", paramImg);
@@ -714,7 +714,7 @@ namespace ComplaintTracker.DAL
 
                 log.Information(retStatus.ToString());
 
-                
+
             }
             catch (Exception ex)
             {
@@ -932,7 +932,7 @@ namespace ComplaintTracker.DAL
                     objBlank.CAUSE = dr.ItemArray[14].ToString();
                     objBlank.METER_NO = dr.ItemArray[15].ToString();
                     objBlank.USP_GETFRT = dr.ItemArray[16].ToString();
-                    
+
 
                     objBlank.METER_TYPE = dr.ItemArray[17].ToString();
                     objBlank.BEFORE_RECTIFICATION = dr.ItemArray[18].ToString();
@@ -1221,7 +1221,7 @@ namespace ComplaintTracker.DAL
             {
                 SqlHelper.ExecuteNonQuery(HelperClass.Connection, CommandType.StoredProcedure, "SAVE_REMARK", param);
 
-                if(parmretStatus.Value !=DBNull.Value)
+                if (parmretStatus.Value != DBNull.Value)
                 {
                     retStatus = parmretStatus.Value.ToString();
                 }
@@ -1230,8 +1230,8 @@ namespace ComplaintTracker.DAL
                     retMsg = parmretMsg.Value.ToString();
                 }
 
-                response.status= retStatus;
-                response.message= retMsg;
+                response.status = retStatus;
+                response.message = retMsg;
             }
             catch (Exception ex)
             {
@@ -1344,7 +1344,7 @@ namespace ComplaintTracker.DAL
 
 
 
-             return response; ;
+            return response; ;
 
         }
         public static List<ModelEsclatedCOmplaints> GetExclatedComplaintSummary(int OfficeCode, int ComplaintType, int SLAType)
@@ -1475,7 +1475,7 @@ namespace ComplaintTracker.DAL
                 else
                     retStatus = 0;
 
-                if(retStatus>0)
+                if (retStatus > 0)
                 {
                     SqlParameter[] param1 ={
                     new SqlParameter("@ASSIGNEEId",modelRemark.ASSIGNEEId)};
@@ -1488,13 +1488,13 @@ namespace ComplaintTracker.DAL
                     }
                     ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
                     modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
-                    modelComplaintSendToCMS.compl_status = "Complaint Assigned to "+ ASSIGNEE;
+                    modelComplaintSendToCMS.compl_status = "Complaint Assigned to " + ASSIGNEE;
                     modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned to " + ASSIGNEE;
                     modelComplaintSendToCMS.compl_action_description = "Complaint Assigned";
                     string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
                 }
                 log.Information(modelRemark.MOBILE_NO.ToString());
-                
+
             }
             catch (Exception ex)
             {
@@ -1503,7 +1503,7 @@ namespace ComplaintTracker.DAL
             //try
             //{
 
-                
+
             //    modelSmsAPIOWN.id = "0";
             //    modelSmsAPIOWN.to = modelRemark.MOBILE_NO.ToString();
             //    modelSmsAPIOWN.smsText = modelRemark.SMS;
@@ -1623,7 +1623,7 @@ namespace ComplaintTracker.DAL
             }
             return lstComplaintSource;
         }
-        public static int ReopenComplaint(Int64 s, string remark,int userID)
+        public static int ReopenComplaint(Int64 s, string remark, int userID)
         {
             int retStatus = 0;
             string retMsg = String.Empty; ;
@@ -3075,7 +3075,7 @@ namespace ComplaintTracker.DAL
 
         }
 
-        public static int PUSH_SMS_DETAIL_Consumer1(string mobile_no,string smstext, string response)
+        public static int PUSH_SMS_DETAIL_Consumer1(string mobile_no, string smstext, string response)
         {
             int retStatus = 0;
             string retMsg = String.Empty; ;
@@ -3155,7 +3155,7 @@ namespace ComplaintTracker.DAL
                             ADDRESS3 = Convert.ToString(dr["ADDRESS3"]),
                             KNO = Convert.ToString(dr["KNO"]),
                             MOBILE_NO = Convert.ToString(dr["MOBILE_NO"]),
-                            OFFICE_CODE_ID=3103310,
+                            OFFICE_CODE_ID = 3103310,
                         }
                         );
                 }
@@ -3240,8 +3240,8 @@ namespace ComplaintTracker.DAL
             SqlParameter[] param ={
                     new SqlParameter("@OFFICE_ID",dataObject.OfficeCode)
                        };
-            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "NEW_CONNECTION_REPORT",param);
-            
+            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "NEW_CONNECTION_REPORT", param);
+
             if (ds.Tables.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -3544,7 +3544,7 @@ namespace ComplaintTracker.DAL
                 new SqlParameter("@UserID",dataObject.EnterByUserID),
                 new SqlParameter("@number",dataObject.number),
                 new SqlParameter("@UniformType",dataObject.UniformType)
-              
+
 
             };
             DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "Uniform_Missing_Penalty_SP", param);
@@ -3626,7 +3626,7 @@ namespace ComplaintTracker.DAL
         #region ShowHaresmentComplaintDetails
         public static List<ModelDashboardHaresment> ShowHaresmentComplaintDetails(string compstatus, string cmonth)
         {
-            List<ModelDashboardHaresment>  modelDashboardHaresments  = new List<ModelDashboardHaresment>();
+            List<ModelDashboardHaresment> modelDashboardHaresments = new List<ModelDashboardHaresment>();
             ModelDashboardHaresment objBlank = new ModelDashboardHaresment();
             SqlParameter[] param ={
                 new SqlParameter("@COMPLAINT_MONTH",cmonth),
@@ -3687,19 +3687,19 @@ namespace ComplaintTracker.DAL
         public static string GET_CC_MOBILE_NO(string sdoCode)
         {
             string retMsg = String.Empty; ;
-            SqlParameter[] param ={new SqlParameter("@SDO_CODE", sdoCode)};
+            SqlParameter[] param = { new SqlParameter("@SDO_CODE", sdoCode) };
             try
             {
                 DataSet ds = new DataSet();
                 ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_CC_MOBILE_NO", param);
-                if(ds.Tables.Count > 0) 
+                if (ds.Tables.Count > 0)
                 {
-                    retMsg = ds.Tables[0].Rows[0][0].ToString(); 
+                    retMsg = ds.Tables[0].Rows[0][0].ToString();
                 }
             }
             catch (Exception ex)
             {
-                
+
             }
 
             return retMsg;
@@ -3775,20 +3775,20 @@ namespace ComplaintTracker.DAL
 
         public static List<ModelComplaintStepsGrid> GetNewConnectionStepsGrid(Int64 ComplaintNo)
         {
-            SqlParameter[] param = {new SqlParameter("@COMPLAINT_NO", ComplaintNo) };
+            SqlParameter[] param = { new SqlParameter("@COMPLAINT_NO", ComplaintNo) };
             DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "NEW_CONNECTION_STEP_DETAIL", param);
             var newConnList = ds.Tables[0].AsEnumerable()
                 .Select(dataRow => new ModelComplaintStepsGrid
                 {
-                         COMPLAINT_NO = dataRow.Field<Int64>("COMPLAINT_NO"),
-                         STEP_NAME = dataRow.Field<string>("STEP_NAME"),
-                         DS_NDS = dataRow.Field<string>("DS_NDS")
+                    COMPLAINT_NO = dataRow.Field<Int64>("COMPLAINT_NO"),
+                    STEP_NAME = dataRow.Field<string>("STEP_NAME"),
+                    DS_NDS = dataRow.Field<string>("DS_NDS")
                 }).ToList();
 
             return newConnList;
         }
 
-        public  static async Task<int> SaveNewConnection(ModelNewConnection dataObject)
+        public static async Task<int> SaveNewConnection(ModelNewConnection dataObject)
         {
             try
             {
@@ -3814,11 +3814,11 @@ namespace ComplaintTracker.DAL
         {
             try
             {
-                SqlParameter[] param = { new SqlParameter("@RegMobileNo", mobileNo) };                
+                SqlParameter[] param = { new SqlParameter("@RegMobileNo", mobileNo) };
                 DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GenerateOTP", param);
                 if (ds != null)
                 {
-                    if (ds.Tables.Count>0)
+                    if (ds.Tables.Count > 0)
                     {
                         return Convert.ToString(ds.Tables[0].Rows[0][0]);
                     }
@@ -3836,11 +3836,11 @@ namespace ComplaintTracker.DAL
             }
         }
 
-        public static string ValidateOTP(string mobileNo,string userOtp)
+        public static string ValidateOTP(string mobileNo, string userOtp)
         {
             try
             {
-                SqlParameter[] param = { new SqlParameter("@RegMobileNo", mobileNo) ,new SqlParameter("@userOtp", userOtp)};
+                SqlParameter[] param = { new SqlParameter("@RegMobileNo", mobileNo), new SqlParameter("@userOtp", userOtp) };
                 DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "ValidateOTP", param);
                 if (ds != null)
                 {
@@ -3863,5 +3863,47 @@ namespace ComplaintTracker.DAL
         }
         #endregion
 
+
+        //GetOfficeVillageWise
+        //GetAllOfficeDetails
+
+
+        public static List<ModelVillage> GetVillageMaster()
+        {
+            List<ModelVillage> lstRoles = new List<ModelVillage>();
+            ModelVillage objBlank = new ModelVillage();
+            objBlank.Id = 0;
+            objBlank.Name = "Select Village";
+            lstRoles.Insert(0, objBlank);
+
+            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetVillageMaster");
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                objBlank = new ModelVillage();
+                objBlank.Name = dr.ItemArray[1].ToString();
+                objBlank.Id = Convert.ToInt32(dr.ItemArray[0].ToString());
+                lstRoles.Add(objBlank);
+            }
+            return lstRoles;
+        }
+
+
+        public static List<ModelVillage> GetOfficeVillageWise(string villageName)
+        {
+            List<ModelVillage> lstRoles = new List<ModelVillage>();
+            ModelVillage objBlank = new ModelVillage();
+            SqlParameter[] param ={new SqlParameter("@VillageName", villageName) };
+            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetOfficeVillageWise", param);
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                objBlank = new ModelVillage();
+                objBlank.Name = dr.ItemArray[2].ToString();
+                objBlank.Id = Convert.ToInt32(dr.ItemArray[0].ToString());
+                lstRoles.Add(objBlank);
+            }
+            return lstRoles;
+        }
     }
 }

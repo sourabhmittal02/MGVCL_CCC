@@ -586,6 +586,7 @@
     <Content Include="Views\Report\ReportRawComplaintNewConnection.cshtml" />
     <Content Include="Views\Login\ChangePassword.cshtml" />
     <Content Include="Views\Login\_otpPopup.cshtml" />
+    <Content Include="Views\Complaint\_VillageSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,4 +11,11 @@ namespace ComplaintTracker.Models
 
         public int RoleID { get; set; }
     }
+
+    public class ModelVillage
+    {
+        public string Name { get; set; }
+
+        public int Id { get; set; }
+    }
 }

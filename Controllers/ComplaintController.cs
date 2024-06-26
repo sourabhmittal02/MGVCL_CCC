@@ -761,5 +761,28 @@ namespace ComplaintTracker.Controllers
 
             //return Json(modelPowerOutages, JsonRequestBehavior.AllowGet);
         }
+
+
+        [HttpGet]
+        public ActionResult ConsumerVillageList(string searchparam)
+        {
+            return PartialView("_VillageSelection");
+        }
+
+        [HttpGet]
+        public ActionResult GetVillageList()
+        {
+            List<ModelVillage> lstVillage = new List<ModelVillage>();
+            lstVillage = Repository.GetVillageMaster();
+            return Json(lstVillage, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult GetOfficebyVillage(string name)
+        {
+            List<ModelVillage> lstVillage = new List<ModelVillage>();
+            lstVillage = Repository.GetOfficeVillageWise(name);
+            return Json(lstVillage, JsonRequestBehavior.AllowGet);
+        }
     }
 }
