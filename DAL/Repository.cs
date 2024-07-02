@@ -386,9 +386,9 @@ namespace ComplaintTracker.DAL
                         }
                         ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
                         modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                        modelComplaintSendToCMS1.compl_status = "Assigned to Team";
-                        modelComplaintSendToCMS1.compl_action_reason = "Assigned to Team";
-                        modelComplaintSendToCMS1.compl_action_description = modelComplaint.REMARKS;
+                        modelComplaintSendToCMS1.compl_status = "In-Process";
+                        modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                        modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
                         string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
                     }
                 }
@@ -564,9 +564,9 @@ namespace ComplaintTracker.DAL
                     string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
                     ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
                     modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                    modelComplaintSendToCMS1.compl_status = "Assigned to Team";
-                    modelComplaintSendToCMS1.compl_action_reason = "Assigned to Team";
-                    modelComplaintSendToCMS1.compl_action_description = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_status = "In-Process";
+                    modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
                     string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
                     log.Information(modelComplaint.MOBILE_NO.ToString());
                     //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
@@ -722,9 +722,9 @@ namespace ComplaintTracker.DAL
                     string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
                     ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
                     modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                    modelComplaintSendToCMS1.compl_status = "Assigned to Team";
-                    modelComplaintSendToCMS1.compl_action_reason = "Assigned to Team";
-                    modelComplaintSendToCMS1.compl_action_description = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_status = "In-Process";
+                    modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
                     string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
                     log.Information("In Image Save");
                     SqlParameter[] paramImg ={
@@ -1519,9 +1519,9 @@ namespace ComplaintTracker.DAL
                     }
                     ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
                     modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
-                    modelComplaintSendToCMS.compl_status = "Complaint Assigned to "+ ASSIGNEE;
-                    modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned to " + ASSIGNEE;
-                    modelComplaintSendToCMS.compl_action_description = "Complaint Assigned";
+                    modelComplaintSendToCMS.compl_status = "In-Process";
+                    modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned";
+                    modelComplaintSendToCMS.compl_action_description = "Complaint Assigned to " + ASSIGNEE;
                     string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
                 }
                 log.Information(modelRemark.MOBILE_NO.ToString());
