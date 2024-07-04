@@ -369,7 +369,16 @@ namespace ComplaintTracker.DAL
                             modelComplaintSendToCMS.consumer_name = modelComplaint.NAME;
                             modelComplaintSendToCMS.address1 = modelComplaint.ADDRESS1;
                             modelComplaintSendToCMS.address2 = modelComplaint.ADDRESS2;
-                            modelComplaintSendToCMS.VlgID = modelComplaint.villageId.ToString();
+                            if(modelComplaint.villageId==0 || modelComplaint.villageId.ToString()=="")
+                            {
+                                modelComplaintSendToCMS.VlgID = "1";
+                            }
+                            else 
+                            {
+                                modelComplaintSendToCMS.VlgID = modelComplaint.villageId.ToString();
+                            }
+                            
+                            modelComplaintSendToCMS.OfficeCode = modelComplaint.OFFICE_CODE_ID.ToString();
                             string response1 = await textSmsAPI1.SendComplaintRegisterNonConsumerToCMS(modelComplaintSendToCMS);
                         }
                         else

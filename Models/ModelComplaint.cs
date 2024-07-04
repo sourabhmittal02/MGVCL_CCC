@@ -62,6 +62,7 @@ namespace ComplaintTracker.Models
         public string address1 { get; set; }
         public string address2 { get; set; }
         public string VlgID { get; set; }
+        public string OfficeCode { get; set; }
     }
     public class ModelComplaintTagChangeToCMS
     {
