@@ -17,6 +17,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using ComplaintTracker.DAL;
+using Newtonsoft.Json.Linq;
 
 namespace ComplaintTracker.ExternalAPI
 {
@@ -26,6 +27,8 @@ namespace ComplaintTracker.ExternalAPI
         ModelSmsAPI modelsmsClone = null;
         private static string MGVCLComplaintApiURL = System.Configuration.ConfigurationManager.AppSettings["MGVCLComplaintApiURL"];
         private string SendSmsWeb = System.Configuration.ConfigurationManager.AppSettings["MGVCLComplaintSendSmsWeb"];
+        private string MGVCLGetPaymentBillInfoFromCMS = System.Configuration.ConfigurationManager.AppSettings["MGVCLGetPaymentBillInfoFromCMS"];
+        
         public async Task<string> RegisterComplaintSMS(ModelSmsAPI modelsms)
         {
             log.Information("IN RegisterComplaintSMS");
@@ -295,6 +298,23 @@ namespace ComplaintTracker.ExternalAPI
                 return response.Content;
             }
         }
+        public  ModelPaymentInfo GetPaymentBillInfoFromCMSAPI(ModelBillingRequest  modelBillingRequest )
+        {
+            ModelPaymentInfo modelPaymentInfo = new ModelPaymentInfo();
+            var client = new RestClient(MGVCLComplaintApiURL + "/" + MGVCLGetPaymentBillInfoFromCMS);
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelBillingRequest);
+            var response = client.Execute(restRequest);
 
+            string decodedString = System.Text.RegularExpressions.Regex.Unescape(response.Content.Trim('"'));
+            
+
+            modelPaymentInfo = Newtonsoft.Json.JsonConvert.DeserializeObject<ModelPaymentInfo>(Convert.ToString(decodedString));
+
+            return modelPaymentInfo;
+        }
     }
 }

@@ -218,6 +218,7 @@
     <Compile Include="Models\ModelFalseComplaintGrid.cs" />
     <Compile Include="Models\ModelNewConnection.cs" />
     <Compile Include="Models\ModelOutageReport.cs" />
+    <Compile Include="Models\ModelPaymentInfo.cs" />
     <Compile Include="Models\ModelPowerOutage.cs" />
     <Compile Include="Models\ModelRandomizerReport.cs" />
     <Compile Include="Models\ModelDashboard.cs" />
@@ -587,6 +588,7 @@
     <Content Include="Views\Login\ChangePassword.cshtml" />
     <Content Include="Views\Login\_otpPopup.cshtml" />
     <Content Include="Views\Complaint\_VillageSelection.cshtml" />
+    <Content Include="Views\Report\ReportBillingInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

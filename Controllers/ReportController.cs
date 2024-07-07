@@ -907,6 +907,26 @@ namespace ComplaintTracker.Controllers
             modelDashboardHaresments = Repository.GetRepeatedComplaints_RAW(modelReport);
             return PartialView("_repetedComplaintDetails", modelDashboardHaresments);
         }
+
+        public ActionResult ReportBillingInfo()
+        {
+            ModelPaymentInfo modelDashboardHaresments = new ModelPaymentInfo();
+
+            return View(modelDashboardHaresments);
+        }
+
+        [HttpPost]
+        public ActionResult GetReportBillingInfo()
+        {
+            ModelPaymentInfo modelDashboardHaresments = new ModelPaymentInfo();
+            ModelBillingRequest modelBillingRequest = new ModelBillingRequest(); 
+
+            string consumer_No = Request.Form.GetValues("consumerno")[0];
+            modelBillingRequest.cons_no = consumer_No;
+            modelDashboardHaresments = Repository.GetPaymentBillInfoFromCMS(modelBillingRequest);
+            ViewBag.cno = consumer_No;
+            return View("ReportBillingInfo",modelDashboardHaresments);
+        }
     }
 }
 
