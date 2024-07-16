@@ -70,7 +70,20 @@ namespace ComplaintTracker.Models
         public string compl_category { get; set; }
         public string compl_subcategory { get; set; }
     }
+    public class ModelHelpDesk
+    {
 
+        public string HDticketID { get; set; }
+        public string HDTicketDate { get; set; }
+        public string HDTicketType { get; set; }
+        public string HDTicketDescription { get; set; }
+
+        public string ConsumerID { get; set; }
+        public string Meter_No { get; set; }
+        public string Complaint_raised_by { get; set; }
+        public string Raised_by_mobile_No { get; set; }
+
+    }
     public class ModelComplaintSendStatusToCMS
     {
         public string compl_number { get; set; }
@@ -228,6 +241,8 @@ namespace ComplaintTracker.Models
 
     public class RawComplaintExcel
     {
+        public string Circle { get; set; }
+        public string Division { get; set; }
         public string ComplaintNo { get; set; }
         public string SDOCode { get; set; }
         public string SubDivisionName { get; set; }

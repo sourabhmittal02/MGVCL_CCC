@@ -279,6 +279,26 @@ namespace ComplaintTracker.ExternalAPI
             }
         }
 
+        public async Task<string> PushHdTicketAPI(ModelHelpDesk modelsms)
+        {
+            var client = new RestClient(MGVCLComplaintApiURL + "/PushHdticketMEA");
+            var restRequest = new RestRequest();
+            restRequest.Method = Method.POST;
+            restRequest.AddHeader("Accept", "application/json");
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.AddJsonBody(modelsms);
+            var response = await client.ExecuteAsync(restRequest);
+            //response.Content
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return response.Content;
+            }
+            else
+            {
+                return response.Content;
+            }
+        }
+
         public async Task<string> RegisterComplaintSendSMSWebEng(ModelSmsAPISendSMS modelsms)
         {
             var client = new RestClient(MGVCLComplaintApiURL + "/" + SendSmsWeb + "?TYPE=E");

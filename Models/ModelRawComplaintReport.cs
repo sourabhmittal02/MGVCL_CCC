@@ -8,6 +8,8 @@ namespace ComplaintTracker.Models
 {
     public class ModelRawComplaintReport : DataTableAjaxPostModel
     {
+        public string Circle { get; set; }
+        public string Division { get; set; }
         public string SDO_CODE { get; set; }
         public string AreaCode { get; set; }
         public string Name { get; set; }

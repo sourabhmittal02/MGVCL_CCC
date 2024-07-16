@@ -790,6 +790,8 @@ namespace ComplaintTracker.Controllers
             List<RawComplaintExcel> list = lstdata.AsEnumerable()
                                       .Select(o => new RawComplaintExcel
                                       {
+                                          Circle = o.Circle,
+                                          Division = o.Division,
                                           ComplaintNo = o.COMPLAINT_NO,
                                           SDOCode = o.SDO_CODE,
                                           SubDivisionName = o.SubDivisionName,

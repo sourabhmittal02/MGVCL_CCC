@@ -399,6 +399,39 @@ namespace ComplaintTracker.DAL
                         modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
                         modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
                         string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
+                        if(modelComplaint.ComplaintTypeId==15)
+                        {
+                            try
+                            {
+                                SqlParameter[] param1 ={
+                            new SqlParameter("@COMPLAINT_TYPE",modelComplaint.ComplaintTypeId),
+                            new SqlParameter("@SUB_COMPLAINT_TYPE",modelComplaint.SUB_COMPLAINT_TYPE_ID),
+                            new SqlParameter("@SourceID",1)};
+                                string complaintType = "";
+                                string subcomplainttype = "";
+                                string ComplaintSource = "";
+                                DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_COMPLAINT_TYPE_SUBTYPE", param1);
+                                //Bind Complaint generic list using dataRow     
+                                foreach (DataRow dr in ds.Tables[0].Rows)
+                                {
+                                    complaintType = Convert.ToString(dr["COMPLAINT_TYPE"]);
+                                    subcomplainttype = Convert.ToString(dr["SUB_COMPLAINT_TYPE"]);
+                                    ComplaintSource = Convert.ToString(dr["COMPLAINT_SOURCE"]);
+                                }
+                                ModelHelpDesk SmartMeter = new ModelHelpDesk();
+                                SmartMeter.HDticketID = retStatus.ToString();
+                                SmartMeter.HDTicketDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                SmartMeter.HDTicketType = complaintType;
+                                SmartMeter.HDTicketDescription = subcomplainttype;
+                                SmartMeter.ConsumerID = modelComplaint.KNO;
+                                SmartMeter.Meter_No = "NA";
+                                SmartMeter.Complaint_raised_by = modelComplaint.NAME;
+                                SmartMeter.Raised_by_mobile_No = modelComplaint.MOBILE_NO;
+                                string response3 = await textSmsAPI1.PushHdTicketAPI(SmartMeter);
+                            }
+                            catch(Exception ex)
+                            { }
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -2485,6 +2518,8 @@ namespace ComplaintTracker.DAL
                     objData.SOURCE_NAME = Convert.ToString(dr.ItemArray[16].ToString());
                     objData.CreatedUserID = Convert.ToString(dr.ItemArray[17].ToString());
                     objData.ClosedUserID = Convert.ToString(dr.ItemArray[18].ToString());
+                    objData.Circle = Convert.ToString(dr.ItemArray[19].ToString());
+                    objData.Division = Convert.ToString(dr.ItemArray[20].ToString());
                     objData.Total = TotalRec;
                     lstReportdata.Add(objData);
                 }
