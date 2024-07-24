@@ -390,7 +390,7 @@
                         data: 'COMPLAINT_NO',
                         name: '',
                         render: function (data, type, row, meta) {
-                            if (row.COMPLAINT_status != "Closed" && (id == 2) ) {
+                            if ((row.COMPLAINT_status != "Closed" && (id == 2)) || (row.COMPLAINT_status != "Closed" && row.COMPLAINT_TYPE =="Billing Complaint" && (id == 5)))  {
                                 return '<button href="#" type="submit" class="btn btn-danger btnShadow" onclick="Close(' + row.COMPLAINT_NO + ')">Close</a>'
                             } else { return '' }
                         },
