@@ -3960,5 +3960,26 @@ namespace ComplaintTracker.DAL
             }
             return modelPaymentInfo;
         }
+
+        public static List<ModelReportSdoLogin> GetSdoLoginTime(ModelBillingRequest modelBillingRequest)
+        {
+            ModelReportSdoLogin modelLoginData = null;
+            List<ModelReportSdoLogin> lstmodelPaymentInfo = new List<ModelReportSdoLogin>();
+
+            string retMsg = String.Empty;
+            SqlParameter[] param = { new SqlParameter("@Date1", DateTime.Now.Date) };
+            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetSdoLoginTime", param);
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                modelLoginData = new ModelReportSdoLogin();
+                modelLoginData.OFFICE_ID  = dr.ItemArray[0].ToString();
+                modelLoginData.OFFICE_NAME = Convert.ToString(dr.ItemArray[1].ToString());
+                modelLoginData.LOGIN_TIME= Convert.ToString(dr.ItemArray[2].ToString());
+                modelLoginData.Pending_Complaint_Count = Convert.ToString(dr.ItemArray[3].ToString());
+                lstmodelPaymentInfo.Add(modelLoginData);
+            }
+            return lstmodelPaymentInfo;
+        }
     }
 }

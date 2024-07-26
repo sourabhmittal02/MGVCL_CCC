@@ -927,6 +927,25 @@ namespace ComplaintTracker.Controllers
             ViewBag.cno = consumer_No;
             return View("ReportBillingInfo",modelDashboardHaresments);
         }
+        public ActionResult ReportSDOLogin()
+        {
+            List<ModelReportSdoLogin>  lstmodelReportSdoLogins =   new List<ModelReportSdoLogin>();
+            ViewBag.fromDate = DateTime.Now;
+            return View(lstmodelReportSdoLogins);
+        }
+
+        [HttpPost]
+        public ActionResult GetReportSDOLoginTime()
+        {
+            ModelBillingRequest modelBillingRequest = new ModelBillingRequest();
+            List<ModelReportSdoLogin> lstmodelReportSdoLogins = null;
+            string consumer_No = Request.Form.GetValues("fromDate")[0];
+            modelBillingRequest.cons_no = consumer_No;
+            lstmodelReportSdoLogins = Repository.GetSdoLoginTime(modelBillingRequest);
+            ViewBag.fromDate = Convert.ToDateTime(consumer_No);
+            return View("ReportSDOLogin", lstmodelReportSdoLogins);
+        }
+
     }
 }
 

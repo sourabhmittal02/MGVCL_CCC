@@ -234,6 +234,7 @@
     <Compile Include="Models\ModelRawComplaintReport.cs" />
     <Compile Include="Models\ModelRawComplaintReportNewConnection.cs" />
     <Compile Include="Models\ModelRedressal.cs" />
+    <Compile Include="Models\ModelReportSdoLogin.cs" />
     <Compile Include="Models\ModelRoles.cs" />
     <Compile Include="Models\ModelReport.cs" />
     <Compile Include="Models\ModelSearchComplaint.cs" />
@@ -589,6 +590,7 @@
     <Content Include="Views\Login\_otpPopup.cshtml" />
     <Content Include="Views\Complaint\_VillageSelection.cshtml" />
     <Content Include="Views\Report\ReportBillingInfo.cshtml" />
+    <Content Include="Views\Report\ReportSDOLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
