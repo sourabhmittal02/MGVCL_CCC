@@ -4002,7 +4002,7 @@ namespace ComplaintTracker.DAL
             List<ModelReportSdoLogin> lstmodelPaymentInfo = new List<ModelReportSdoLogin>();
 
             string retMsg = String.Empty;
-            SqlParameter[] param = { new SqlParameter("@Date1", DateTime.Now.Date) };
+            SqlParameter[] param = { new SqlParameter("@Date1", modelBillingRequest.cons_no) };
             DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetSdoLoginTime", param);
 
             foreach (DataRow dr in ds.Tables[0].Rows)
