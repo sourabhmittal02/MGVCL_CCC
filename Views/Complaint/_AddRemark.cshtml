@@ -26,11 +26,12 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <p class="text-sm text-secondary fw-bold">
-                            
-                            <input id="toggle-eventConfirm" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="sm" hidden>
+                            <div style="display: inline-block;">
+                                <input id="toggle-eventConfirm" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="sm">
+                            </div>
                             @Html.ValidationMessageFor(model => model.IsResolvedByFrt, "", new { @class = "text-danger" })
+                            <h5 style="display: inline-block; margin: 0 0 0 10px;"><label for="toggle-eventConfirm">Resolved By Sub-Division</label></h5>
                         </p>
-
                     </div>
                 </div>
                 <div class="row mb-1">
