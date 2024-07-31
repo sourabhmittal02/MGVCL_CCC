@@ -1255,7 +1255,7 @@ namespace ComplaintTracker.DAL
         }
 
         #region Sourabh
-        public static Response SaveRemark(COMPLAINT modelRemark)
+        public static async Task<Response> SaveRemark(COMPLAINT modelRemark)
         {
             Response response = new Response();
             string retStatus = "-1";
@@ -1295,6 +1295,17 @@ namespace ComplaintTracker.DAL
                 if (parmretMsg.Value != DBNull.Value)
                 {
                     retMsg = parmretMsg.Value.ToString();
+                }
+
+                if(modelRemark.IsResolvedByFrt== true || modelRemark.IsResolvedByFrt is true)
+                {
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
+                    modelComplaintSendToCMS.compl_status = "Closed";
+                    modelComplaintSendToCMS.compl_action_reason = "Closed By Sub-division";
+                    modelComplaintSendToCMS.compl_action_description = modelRemark.REMARKS;
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
                 }
 
                 response.status = retStatus;
@@ -3978,6 +3989,8 @@ namespace ComplaintTracker.DAL
             }
             return lstRoles;
         }
+
+       
 
         public static ModelPaymentInfo GetPaymentBillInfoFromCMS(ModelBillingRequest  modelBillingRequest)
         {

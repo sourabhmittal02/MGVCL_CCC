@@ -418,10 +418,10 @@ namespace ComplaintTracker.Controllers
         }
 
         [HttpGet]
-        public JsonResult SaveRemark(COMPLAINT model)
+        public async Task<JsonResult> SaveRemark(COMPLAINT model)
         {
             model.UserId = Convert.ToInt32(Session["UserID"].ToString());
-            Response data = Repository.SaveRemark(model);
+            Response data = await Repository.SaveRemark(model);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
@@ -482,7 +482,7 @@ namespace ComplaintTracker.Controllers
         {        
              int Status = await Repository.ChangeAssignee_Save(model, Convert.ToInt32(Session["UserID"].ToString()));
             model.UserId = Convert.ToInt32(Session["UserID"].ToString());
-            Response data = Repository.SaveRemark(model);
+            Response data = await Repository.SaveRemark(model);
             if(data.status == "-1")
             {
                 data.message = "error in saving Complaint No. " + model.COMPLAINT_NO.ToString() + " Error in saving ...!";
@@ -795,5 +795,6 @@ namespace ComplaintTracker.Controllers
             lstVillage = Repository.GetOfficeVillageWise(name);
             return Json(lstVillage, JsonRequestBehavior.AllowGet);
         }
+
     }
 }
