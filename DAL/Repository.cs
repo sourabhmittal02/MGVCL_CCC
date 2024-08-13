@@ -348,57 +348,57 @@ namespace ComplaintTracker.DAL
                     if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
                     {
                         TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                        //if (modelComplaint.KNO == null || modelComplaint.CONSUMER_TYPE == "2")
-                        //{
-                        //    if (modelComplaint.EMAIL == "" || modelComplaint.EMAIL is null)
-                        //    {
-                        //        modelComplaint.EMAIL = "0";
-                        //    }
-                        //    if (modelComplaint.ADDRESS2 == "" || modelComplaint.ADDRESS2 is null)
-                        //    {
-                        //        modelComplaint.ADDRESS2 = "0";
-                        //    }
-                        //    ModelComplaintSendNonConsumerToCMS modelComplaintSendToCMS = new ModelComplaintSendNonConsumerToCMS();
-                        //    modelComplaintSendToCMS.compl_number = retStatus.ToString();
-                        //    modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
-                        //    modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
-                        //    modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
-                        //    modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
-                        //    modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
-                        //    modelComplaintSendToCMS.email_id = modelComplaint.EMAIL;
-                        //    modelComplaintSendToCMS.consumer_name = modelComplaint.NAME;
-                        //    modelComplaintSendToCMS.address1 = modelComplaint.ADDRESS1;
-                        //    modelComplaintSendToCMS.address2 = modelComplaint.ADDRESS2;
-                        //    if(modelComplaint.villageId==0 || modelComplaint.villageId.ToString()=="")
-                        //    {
-                        //        modelComplaintSendToCMS.VlgID = "1";
-                        //    }
-                        //    else 
-                        //    {
-                        //        modelComplaintSendToCMS.VlgID = modelComplaint.villageId.ToString();
-                        //    }
+                        if (modelComplaint.KNO == null || modelComplaint.CONSUMER_TYPE == "2")
+                        {
+                            if (modelComplaint.EMAIL == "" || modelComplaint.EMAIL is null)
+                            {
+                                modelComplaint.EMAIL = "0";
+                            }
+                            if (modelComplaint.ADDRESS2 == "" || modelComplaint.ADDRESS2 is null)
+                            {
+                                modelComplaint.ADDRESS2 = "0";
+                            }
+                            ModelComplaintSendNonConsumerToCMS modelComplaintSendToCMS = new ModelComplaintSendNonConsumerToCMS();
+                            modelComplaintSendToCMS.compl_number = retStatus.ToString();
+                            modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
+                            modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
+                            modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
+                            modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
+                            modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
+                            modelComplaintSendToCMS.email_id = modelComplaint.EMAIL;
+                            modelComplaintSendToCMS.consumer_name = modelComplaint.NAME;
+                            modelComplaintSendToCMS.address1 = modelComplaint.ADDRESS1;
+                            modelComplaintSendToCMS.address2 = modelComplaint.ADDRESS2;
+                            if(modelComplaint.villageId==0 || modelComplaint.villageId.ToString()=="")
+                            {
+                                modelComplaintSendToCMS.VlgID = "1";
+                            }
+                            else 
+                            {
+                                modelComplaintSendToCMS.VlgID = modelComplaint.villageId.ToString();
+                            }
                             
-                        //    modelComplaintSendToCMS.OfficeCode = modelComplaint.OFFICE_CODE_ID.ToString();
-                        //    string response1 = await textSmsAPI1.SendComplaintRegisterNonConsumerToCMS(modelComplaintSendToCMS);
-                        //}
-                        //else
-                        //{
-                        //    ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
-                        //    modelComplaintSendToCMS.compl_number = retStatus.ToString();
-                        //    modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
-                        //    modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
-                        //    modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
-                        //    modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
-                        //    modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
-                        //    modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
-                        //    string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
-                        //}
-                        //ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
-                        //modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                        //modelComplaintSendToCMS1.compl_status = "In-Process";
-                        //modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
-                        //modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
-                        //string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
+                            modelComplaintSendToCMS.OfficeCode = modelComplaint.OFFICE_CODE_ID.ToString();
+                            string response1 = await textSmsAPI1.SendComplaintRegisterNonConsumerToCMS(modelComplaintSendToCMS);
+                        }
+                        else
+                        {
+                            ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
+                            modelComplaintSendToCMS.compl_number = retStatus.ToString();
+                            modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
+                            modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
+                            modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
+                            modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
+                            modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
+                            modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
+                            string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
+                        }
+                        ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
+                        modelComplaintSendToCMS1.compl_number = retStatus.ToString();
+                        modelComplaintSendToCMS1.compl_status = "In-Process";
+                        modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                        modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
+                        string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
                         if(modelComplaint.ComplaintTypeId==15)
                         {
                             try
@@ -590,74 +590,74 @@ namespace ComplaintTracker.DAL
 
                 log.Information(retStatus.ToString());
 
-                //if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
-                //{
-                //    if (modelComplaint.KNO == null)
-                //        modelComplaint.KNO = "0";
-                //    ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
-                //    modelComplaintSendToCMS.compl_number = retStatus.ToString();
-                //    modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
-                //    modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
-                //    modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
-                //    modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
-                //    modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
-                //    modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
-                //    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                //    string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
-                //    ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
-                //    modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                //    modelComplaintSendToCMS1.compl_status = "In-Process";
-                //    modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
-                //    modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
-                //    string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
-                //    log.Information(modelComplaint.MOBILE_NO.ToString());
-                //    //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
-                //    //TextSmsAPI textSmsAPI = new TextSmsAPI();
+                if (retStatus > 0 && modelComplaint.MOBILE_NO.Length == 10)
+                {
+                    if (modelComplaint.KNO == null)
+                        modelComplaint.KNO = "0";
+                    ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
+                    modelComplaintSendToCMS.compl_number = retStatus.ToString();
+                    modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
+                    modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
+                    modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
+                    modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
+                    modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS1.compl_number = retStatus.ToString();
+                    modelComplaintSendToCMS1.compl_status = "In-Process";
+                    modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
+                    string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
+                    log.Information(modelComplaint.MOBILE_NO.ToString());
+                    //ModelSmsAPI modelSmsAPI = new ModelSmsAPI();
+                    //TextSmsAPI textSmsAPI = new TextSmsAPI();
 
-                //    //modelSmsAPI.To = "91" + modelComplaint.MOBILE_NO.ToString();
-                //    //modelSmsAPI.Smstext = String.Format(modelSmsAPI.NCMS_ConsumerSMS, retStatus);
-                //    //string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
-                //    //modelComplaint.SMS = modelSmsAPI.Smstext;
-                //    //log.Information(response.ToString());
+                    //modelSmsAPI.To = "91" + modelComplaint.MOBILE_NO.ToString();
+                    //modelSmsAPI.Smstext = String.Format(modelSmsAPI.NCMS_ConsumerSMS, retStatus);
+                    //string response = await textSmsAPI.RegisterComplaintSMS(modelSmsAPI);
+                    //modelComplaint.SMS = modelSmsAPI.Smstext;
+                    //log.Information(response.ToString());
 
-                //    ////if (response.Contains("avvnlalt"))
-                //    ////{
-                //    //PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
-                //    ////}
-                //    //string retStatus1;
-                //    //string ccMobileNo = GET_CC_MOBILE_NO(modelComplaint.SDO_CODE);
-                //    ////string Name = GET_COMPLAINT_DETAIL(retStatus);
-                //    //string name = string.Empty;
-                //    //string Address = string.Empty;
-                //    //string Landmark = string.Empty;
-                //    //string MobileNo = string.Empty;
-                //    //DataSet ds = GET_COMPLAINT_DETAIL(retStatus);
+                    ////if (response.Contains("avvnlalt"))
+                    ////{
+                    //PUSH_SMS_DETAIL_Consumer(modelComplaint, response);
+                    ////}
+                    //string retStatus1;
+                    //string ccMobileNo = GET_CC_MOBILE_NO(modelComplaint.SDO_CODE);
+                    ////string Name = GET_COMPLAINT_DETAIL(retStatus);
+                    //string name = string.Empty;
+                    //string Address = string.Empty;
+                    //string Landmark = string.Empty;
+                    //string MobileNo = string.Empty;
+                    //DataSet ds = GET_COMPLAINT_DETAIL(retStatus);
 
-                //    //if (!string.IsNullOrEmpty(ccMobileNo))
-                //    //{
-                //    //    foreach (DataRow dr in ds.Tables[0].Rows)
-                //    //    {
-                //    //        //Consumer Info
-                //    //        name = Convert.ToString(dr["NAME"]);
+                    //if (!string.IsNullOrEmpty(ccMobileNo))
+                    //{
+                    //    foreach (DataRow dr in ds.Tables[0].Rows)
+                    //    {
+                    //        //Consumer Info
+                    //        name = Convert.ToString(dr["NAME"]);
 
-                //    //        Address = Convert.ToString(dr["Address"]);
-                //    //        Landmark = Convert.ToString(dr["LANDMARK"]);
-                //    //        MobileNo = Convert.ToString(dr["MOBILE_NO"]);
+                    //        Address = Convert.ToString(dr["Address"]);
+                    //        Landmark = Convert.ToString(dr["LANDMARK"]);
+                    //        MobileNo = Convert.ToString(dr["MOBILE_NO"]);
 
-                //    //    }
-                //    //    ModelSmsAPI modelSmsCCAPI = new ModelSmsAPI();
-                //    //    modelSmsCCAPI.To = "91" + ccMobileNo;
-                //    //    modelSmsCCAPI.Smstext = String.Format(modelSmsCCAPI.NCMS_CCSMS, retStatus,name,Address,Landmark,MobileNo);
-                //    //    string responseCC = await textSmsAPI.RegisterComplaintSMS(modelSmsCCAPI);
+                    //    }
+                    //    ModelSmsAPI modelSmsCCAPI = new ModelSmsAPI();
+                    //    modelSmsCCAPI.To = "91" + ccMobileNo;
+                    //    modelSmsCCAPI.Smstext = String.Format(modelSmsCCAPI.NCMS_CCSMS, retStatus,name,Address,Landmark,MobileNo);
+                    //    string responseCC = await textSmsAPI.RegisterComplaintSMS(modelSmsCCAPI);
 
-                //    //    PUSH_SMS_DETAIL_Consumer1(ccMobileNo, modelSmsCCAPI.Smstext, responseCC);
-                //    //}
+                    //    PUSH_SMS_DETAIL_Consumer1(ccMobileNo, modelSmsCCAPI.Smstext, responseCC);
+                    //}
 
 
 
-                //}
-                //else
-                //    retStatus = 0;
+                }
+                else
+                    retStatus = 0;
             }
             catch (Exception ex)
             {
@@ -750,25 +750,25 @@ namespace ComplaintTracker.DAL
 
                 if (retStatus > 0)
                 {
-                    //if (modelComplaint.KNO == null)
-                    //    modelComplaint.KNO = "0";
-                    //ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
-                    //modelComplaintSendToCMS.compl_number = retStatus.ToString();
-                    //modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
-                    //modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
-                    //modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
-                    //modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
-                    //modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
-                    //modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
-                    //TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                    //string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
-                    //ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
-                    //modelComplaintSendToCMS1.compl_number = retStatus.ToString();
-                    //modelComplaintSendToCMS1.compl_status = "In-Process";
-                    //modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
-                    //modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
-                    //string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
-                    //log.Information("In Image Save");
+                    if (modelComplaint.KNO == null)
+                        modelComplaint.KNO = "0";
+                    ModelComplaintSendToCMS modelComplaintSendToCMS = new ModelComplaintSendToCMS();
+                    modelComplaintSendToCMS.compl_number = retStatus.ToString();
+                    modelComplaintSendToCMS.cons_no = modelComplaint.KNO;
+                    modelComplaintSendToCMS.compl_category = modelComplaint.ComplaintTypeId.ToString();
+                    modelComplaintSendToCMS.compl_subcategory = modelComplaint.SUB_COMPLAINT_TYPE_ID.ToString();
+                    modelComplaintSendToCMS.complaint_source = modelComplaint.ComplaintSource.ToString();
+                    modelComplaintSendToCMS.compl_Details = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS.consumer_mobile = modelComplaint.MOBILE_NO;
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintRegisterToCMS(modelComplaintSendToCMS);
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS1 = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS1.compl_number = retStatus.ToString();
+                    modelComplaintSendToCMS1.compl_status = "In-Process";
+                    modelComplaintSendToCMS1.compl_action_reason = modelComplaint.REMARKS;
+                    modelComplaintSendToCMS1.compl_action_description = "Assigned to Team";
+                    string response2 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS1);
+                    log.Information("In Image Save");
                     SqlParameter[] paramImg ={
                     new SqlParameter("@Complaint_NO",retStatus),
                     new SqlParameter("@Image",iMageName)
@@ -1297,16 +1297,16 @@ namespace ComplaintTracker.DAL
                     retMsg = parmretMsg.Value.ToString();
                 }
 
-                //if(modelRemark.IsResolvedByFrt== true || modelRemark.IsResolvedByFrt is true)
-                //{
-                //    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
-                //    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
-                //    modelComplaintSendToCMS.compl_status = "Closed";
-                //    modelComplaintSendToCMS.compl_action_reason = "Closed By Sub-division";
-                //    modelComplaintSendToCMS.compl_action_description = modelRemark.REMARKS;
-                //    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                //    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
-                //}
+                if(modelRemark.IsResolvedByFrt== true || modelRemark.IsResolvedByFrt is true)
+                {
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
+                    modelComplaintSendToCMS.compl_status = "Closed";
+                    modelComplaintSendToCMS.compl_action_reason = "Closed By Sub-division";
+                    modelComplaintSendToCMS.compl_action_description = modelRemark.REMARKS;
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
+                }
 
                 response.status = retStatus;
                 response.message = retMsg;
@@ -1405,12 +1405,12 @@ namespace ComplaintTracker.DAL
                 if (parmretStatus.Value != DBNull.Value)
                 {
                     retStatus = Convert.ToInt32(parmretStatus.Value);
-                    //ModelComplaintTagChangeToCMS modelComplaintSendToCMS = new ModelComplaintTagChangeToCMS();
-                    //modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO;
-                    //modelComplaintSendToCMS.compl_category = modelRemark.ComplaintTypeId.ToString();
-                    //modelComplaintSendToCMS.compl_subcategory = modelRemark.SUB_COMPLAINT_TYPE_ID.ToString();
-                    //TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                    //string response1 = await textSmsAPI1.SendComplaintTagChangeToCMS(modelComplaintSendToCMS);
+                    ModelComplaintTagChangeToCMS modelComplaintSendToCMS = new ModelComplaintTagChangeToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO;
+                    modelComplaintSendToCMS.compl_category = modelRemark.ComplaintTypeId.ToString();
+                    modelComplaintSendToCMS.compl_subcategory = modelRemark.SUB_COMPLAINT_TYPE_ID.ToString();
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintTagChangeToCMS(modelComplaintSendToCMS);
                 }
                 if (parmretMsg.Value != DBNull.Value)
                 {
@@ -1559,24 +1559,24 @@ namespace ComplaintTracker.DAL
                 else
                     retStatus = 0;
 
-                //if (retStatus > 0)
-                //{
-                //    SqlParameter[] param1 ={
-                //    new SqlParameter("@ASSIGNEEId",modelRemark.ASSIGNEEId)};
-                //    string ASSIGNEE = "";
-                //    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_ASSIGNEE_NAME", param1);
-                //    //Bind Complaint generic list using dataRow     
-                //    foreach (DataRow dr in ds.Tables[0].Rows)
-                //    {
-                //        ASSIGNEE = Convert.ToString(dr["ASSIGNEE"]);
-                //    }
-                //    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
-                //    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
-                //    modelComplaintSendToCMS.compl_status = "Complaint Assigned to " + ASSIGNEE;
-                //    modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned to " + ASSIGNEE;
-                //    modelComplaintSendToCMS.compl_action_description = "Complaint Assigned";
-                //    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
-                //}
+                if (retStatus > 0)
+                {
+                    SqlParameter[] param1 ={
+                    new SqlParameter("@ASSIGNEEId",modelRemark.ASSIGNEEId)};
+                    string ASSIGNEE = "";
+                    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_ASSIGNEE_NAME", param1);
+                    //Bind Complaint generic list using dataRow     
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        ASSIGNEE = Convert.ToString(dr["ASSIGNEE"]);
+                    }
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.COMPLAINT_NO.ToString();
+                    modelComplaintSendToCMS.compl_status = "Complaint Assigned to " + ASSIGNEE;
+                    modelComplaintSendToCMS.compl_action_reason = "Complaint Assigned to " + ASSIGNEE;
+                    modelComplaintSendToCMS.compl_action_description = "Complaint Assigned";
+                    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
+                }
                 log.Information(modelRemark.MOBILE_NO.ToString());
 
             }
@@ -1869,28 +1869,28 @@ namespace ComplaintTracker.DAL
                     retStatus = Convert.ToInt32(param[13].Value);
                 else
                     retStatus = 0;
-                //if (retStatus > 0)
-                //{
-                //    SqlParameter[] param1 ={
-                //    new SqlParameter("@COMPLAINT_NO",modelRemark.ComplaintNo.ToString()),
-                //    new SqlParameter("@Outage_TYPE_ID",modelRemark.OutageTypeCollectionId1)};
-                //    string KNO = "";
-                //    string OutageType = "";
-                //    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_KNO_COMPLAINT_OUTAGE_TYPE", param1);
-                //    //Bind Complaint generic list using dataRow     
-                //    foreach (DataRow dr in ds.Tables[0].Rows)
-                //    {
-                //        KNO = Convert.ToString(dr["KNO"]);
-                //        OutageType = Convert.ToString(dr["OUTAGE_TYPE"]);
-                //    }
-                //    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
-                //    modelComplaintSendToCMS.compl_number = modelRemark.ComplaintNo.ToString();
-                //    modelComplaintSendToCMS.compl_status = "Closed";
-                //    modelComplaintSendToCMS.compl_action_reason = OutageType;
-                //    modelComplaintSendToCMS.compl_action_description = modelRemark.Remarks;
-                //    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
-                //    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
-                //}
+                if (retStatus > 0)
+                {
+                    SqlParameter[] param1 ={
+                    new SqlParameter("@COMPLAINT_NO",modelRemark.ComplaintNo.ToString()),
+                    new SqlParameter("@Outage_TYPE_ID",modelRemark.OutageTypeCollectionId1)};
+                    string KNO = "";
+                    string OutageType = "";
+                    DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GET_KNO_COMPLAINT_OUTAGE_TYPE", param1);
+                    //Bind Complaint generic list using dataRow     
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        KNO = Convert.ToString(dr["KNO"]);
+                        OutageType = Convert.ToString(dr["OUTAGE_TYPE"]);
+                    }
+                    ModelComplaintSendStatusToCMS modelComplaintSendToCMS = new ModelComplaintSendStatusToCMS();
+                    modelComplaintSendToCMS.compl_number = modelRemark.ComplaintNo.ToString();
+                    modelComplaintSendToCMS.compl_status = "Closed";
+                    modelComplaintSendToCMS.compl_action_reason = OutageType;
+                    modelComplaintSendToCMS.compl_action_description = modelRemark.Remarks;
+                    TextSmsAPI textSmsAPI1 = new TextSmsAPI();
+                    string response1 = await textSmsAPI1.SendComplaintStatusToCMS(modelComplaintSendToCMS);
+                }
 
 
             }
