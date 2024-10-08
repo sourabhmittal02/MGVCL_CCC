@@ -227,6 +227,10 @@ namespace ComplaintTracker.Controllers
         {
             return View();
         }
+        public ActionResult ReportBiomatricAttendanceReport()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult ReportRepetedComplaint()
@@ -264,7 +268,29 @@ namespace ComplaintTracker.Controllers
             return View();
         }
 
+        public ActionResult DownloadBiomatricReport(ModelReport modelReport)
+        {
 
+            //var FileVirtualPath = "~/Files/" + modelReport.BILL_MONTH + "-" + modelReport.BILL_YEAR + ".xlsx";
+            //return File(FileVirtualPath, System.Net.Mime.MediaTypeNames.Application.Octet, Path.GetFileName(FileVirtualPath));
+
+            // Path to the file to be exported
+            //string filePath = Server.MapPath("~/App_Data/"+modelReport.BILL_MONTH+"-"+modelReport.BILL_YEAR+".xlsx");
+
+            //// Check if file exists
+            //if (!System.IO.File.Exists(filePath))
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //// Read file content
+            //byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            //string fileName = "Biomatric attendace for the month of "+modelReport.BILL_MONTH + "-" + modelReport.BILL_YEAR + ".xlsx";
+
+            //// Return the file
+            //return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            return View();
+        }
 
         //====================================================================
         #region ComplaintAnalysis Report
