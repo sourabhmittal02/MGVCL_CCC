@@ -96,7 +96,10 @@
             success: function (data) {
                 if (data.status == 1) {
                     $("#remarkPopup").modal('hide');
-                    myfun();
+                    if ($.fn.DataTable.isDataTable('#datatables-buttons')) {
+                        var table = new DataTable('#datatables-buttons');
+                        table.order([[1, 'asc']]).draw(false);
+                    }
                     swal("Good job!", data.message, "success");
 
                 }

@@ -300,14 +300,7 @@
             dataObject.Complaint_Type = Complainttype;
             var RoleId = '@Request.RequestContext.HttpContext.Session["Roll_ID"]';
 
-            if ($.fn.DataTable.isDataTable('#datatables-buttons')) {
 
-
-                var table = new DataTable('#datatables-buttons');
-                table.order([[1, 'asc']]).draw(false);
-
-            }
-            else {
                 myTable = $('#datatables-buttons').dataTable({
                     "ajax": {
                         "url": "/Complaint/GetComplaintSearch/",
@@ -432,7 +425,7 @@
 
 
                 });
-            }
+            
 
         }
 
