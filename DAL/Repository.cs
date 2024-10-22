@@ -3506,6 +3506,55 @@ namespace ComplaintTracker.DAL
             return lstReportdata;
         }
 
+
+        public static List<ComplaintResoltionHoursModel> ReportComplaintResolutionHoursWiseSearch(ModelReport dataObject)
+        {
+
+            List<ComplaintResoltionHoursModel> lstReportdata = new List<ComplaintResoltionHoursModel>();
+            ComplaintResoltionHoursModel objData = new ComplaintResoltionHoursModel();
+            SqlParameter[] param ={
+                    new SqlParameter("@BILL_MONTH",dataObject.BILL_MONTH),
+                     new SqlParameter("@BILL_YEAR",dataObject.BILL_YEAR)
+                       };
+            DataSet ds = SqlHelper.ExecuteDataset(HelperClass.Connection, CommandType.StoredProcedure, "GetComplaintCount", param);
+
+            if (ds.Tables.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    objData = new ComplaintResoltionHoursModel();
+                    objData.Bill_Month = Convert.ToString(ds.Tables[0].Rows[i][0].ToString());
+                    objData.One = Convert.ToString(ds.Tables[0].Rows[i][1].ToString());
+                    objData.Two = Convert.ToString(ds.Tables[0].Rows[i][2].ToString());
+                    objData.Three = Convert.ToString(ds.Tables[0].Rows[i][3].ToString());
+                    objData.Four = Convert.ToString(ds.Tables[0].Rows[i][4].ToString());
+                    objData.Five = Convert.ToString(ds.Tables[0].Rows[i][5].ToString());
+                    objData.Six = Convert.ToString(ds.Tables[0].Rows[i][6].ToString());
+                    objData.Seven = Convert.ToString(ds.Tables[0].Rows[i][7].ToString());
+                    objData.Eight = Convert.ToString(ds.Tables[0].Rows[i][8].ToString());
+                    objData.Nine = Convert.ToString(ds.Tables[0].Rows[i][9].ToString());
+                    objData.Ten = Convert.ToString(ds.Tables[0].Rows[i][10].ToString());
+                    objData.Eleven = Convert.ToString(ds.Tables[0].Rows[i][11].ToString());
+                    objData.Twelve = Convert.ToString(ds.Tables[0].Rows[i][12].ToString());
+                    objData.Thirteen = Convert.ToString(ds.Tables[0].Rows[i][13].ToString());
+                    objData.Fourteen = Convert.ToString(ds.Tables[0].Rows[i][14].ToString());
+                    objData.Fifteen = Convert.ToString(ds.Tables[0].Rows[i][15].ToString());
+                    objData.Sixteen = Convert.ToString(ds.Tables[0].Rows[i][16].ToString());
+                    objData.Seventeen = Convert.ToString(ds.Tables[0].Rows[i][17].ToString());
+                    objData.Eighteen = Convert.ToString(ds.Tables[0].Rows[i][18].ToString());
+                    objData.Nineteen = Convert.ToString(ds.Tables[0].Rows[i][19].ToString());
+                    objData.Twenty = Convert.ToString(ds.Tables[0].Rows[i][20].ToString());
+                    objData.TwentyOne = Convert.ToString(ds.Tables[0].Rows[i][21].ToString());
+                    objData.TwentyTwo = Convert.ToString(ds.Tables[0].Rows[i][22].ToString());
+                    objData.TwentyThree = Convert.ToString(ds.Tables[0].Rows[i][23].ToString());
+                    objData.TwentyFour = Convert.ToString(ds.Tables[0].Rows[i][24].ToString());
+                    objData.MoreTwentyFour = Convert.ToString(ds.Tables[0].Rows[i][25].ToString());
+
+                    lstReportdata.Add(objData);
+                }
+            }
+            return lstReportdata;
+        }
         public static List<ModelComplaintSourceWiseDetailReport> ComplaintSourceWiseDetailPopUp(string sDate, string ComplaintSource, string OfficeCode)
         {
 

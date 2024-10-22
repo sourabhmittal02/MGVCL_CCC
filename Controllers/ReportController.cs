@@ -227,6 +227,11 @@ namespace ComplaintTracker.Controllers
         {
             return View();
         }
+
+        public ActionResult ReportComplaintResolutionTimeReport()
+        {
+            return View();
+        }
         public ActionResult ReportBiomatricAttendanceReport()
         {
             return View();
@@ -724,6 +729,15 @@ namespace ComplaintTracker.Controllers
             return PartialView("_ComplaintSourceWiseDetails", jsonData);
         }
         #endregion
+
+        public JsonResult ReportComplaintResolutionHoursWiseSearch(ModelReport dataObject)
+        {
+            List<ComplaintResoltionHoursModel> data = new List<ComplaintResoltionHoursModel>();
+            data = Repository.ReportComplaintResolutionHoursWiseSearch(dataObject);
+            var jsonData = data;
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
 
         #region  ReportRepetedComplaint
         [HttpPost]
